@@ -6,69 +6,224 @@
 <title>بن الملوك</title>
 
 <style>
-body{
+
+*{
 margin:0;
-background:#0f0f0f;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
-color:#fff;
+}
+
+body{
+
+background:
+linear-gradient(180deg,#111,#000);
+
 display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
+
+color:white;
+
 }
 
 .card{
-width:90%;
-max-width:420px;
+
+width:92%;
+max-width:430px;
+
 background:#1a1a1a;
-border:2px solid #c9a227;
-border-radius:20px;
-padding:25px;
+
+border:2px solid #D4AF37;
+
+border-radius:25px;
+
+padding:30px;
+
 text-align:center;
-box-shadow:0 0 20px rgba(201,162,39,.4);
+
+box-shadow:
+0 0 30px rgba(212,175,55,.25);
+
+animation:fade 1s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.logo{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+background:#222;
+
+border:3px solid #D4AF37;
+
+margin:auto;
+
+overflow:hidden;
+
+margin-bottom:20px;
+
+}
+
+.logo img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
 }
 
 h1{
-color:#d4af37;
-margin-bottom:5px;
+
+color:#D4AF37;
+
+margin-bottom:10px;
+
+font-size:34px;
+
 }
 
-p{
-color:#ccc;
+.desc{
+
+color:#ddd;
+
+line-height:1.8;
+
+margin-bottom:20px;
+
+}
+
+.address{
+
+color:#aaa;
+
 margin-bottom:25px;
+
+font-size:15px;
+
 }
 
-a{
+.btn{
+
 display:block;
-text-decoration:none;
-padding:15px;
+
+padding:16px;
+
 margin:12px 0;
-border-radius:12px;
+
+border-radius:14px;
+
+text-decoration:none;
+
 font-size:18px;
+
 font-weight:bold;
-color:#fff;
+
+color:white;
+
 transition:.3s;
+
 }
 
-.whatsapp{background:#25D366;}
-.facebook{background:#1877F2;}
-.instagram{
-background:linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
-}
-.instapay{
-background:#444;
-border:1px solid #d4af37;
-}
+.btn:hover{
 
-a:hover{
 transform:scale(1.03);
+
+}
+
+.whatsapp{
+
+background:#25D366;
+
+}
+
+.facebook{
+
+background:#1877F2;
+
+}
+
+.instagram{
+
+background:
+linear-gradient(45deg,#833AB4,#FD1D1D,#FCAF45);
+
+}
+
+.maps{
+
+background:#b8860b;
+
+}
+
+.instapay{
+
+background:#444;
+
+border:1px solid gold;
+
+cursor:pointer;
+
+}
+
+.call{
+
+background:#555;
+
+}
+
+.offer{
+
+margin-top:25px;
+
+padding:15px;
+
+background:#222;
+
+border-radius:15px;
+
+border:1px solid #D4AF37;
+
+color:#FFD700;
+
+font-weight:bold;
+
+font-size:18px;
+
 }
 
 .footer{
-margin-top:20px;
-color:#999;
-font-size:14px;
+
+margin-top:25px;
+
+font-size:13px;
+
+color:#888;
+
 }
+
 </style>
 
 </head>
@@ -77,37 +232,98 @@ font-size:14px;
 
 <div class="card">
 
+<div class="logo">
+
+<img src="logo.png">
+
+</div>
+
 <h1>☕ بن الملوك</h1>
 
-<p>أجود أنواع البن والقهوة الطازجة</p>
+<div class="desc">
 
-<a class="whatsapp" href="https://wa.me/201020808359">
+أجود أنواع البن والقهوة الطازجة
+
+</div>
+
+<div class="address">
+
+📍 بركة السبع - المنوفية
+
+</div>
+<a class="btn whatsapp"
+href="https://wa.me/201020808359?text=السلام عليكم، أريد الاستفسار عن منتجات بن الملوك">
 🟢 واتساب
 </a>
 
-<a class="facebook" href="https://www.facebook.com/share/1Esh5xLFEa/?mibextid=wwXIfr">
+<a class="btn maps"
+href="https://maps.app.goo.gl/vcC59bt2VNzxXApX9?g_st=ic"
+target="_blank">
+📍 موقع المطحن
+</a>
+
+<a class="btn facebook"
+href="https://www.facebook.com/share/1Esh5xLFEa/?mibextid=wwXIfr"
+target="_blank">
 ☕ فيسبوك بن الملوك
 </a>
 
-<a class="facebook" href="https://www.facebook.com/share/1Gn9B8ZD4m/?mibextid=wwXIfr">
-👤 صفحتي الشخصية
+<a class="btn facebook"
+href="https://www.facebook.com/share/1Gn9B8ZD4m/?mibextid=wwXIfr"
+target="_blank">
+👤 الصفحة الشخصية
 </a>
 
-<a class="instagram" href="https://instagram.com/Hazem.dawoud">
+<a class="btn instagram"
+href="https://instagram.com/Hazem.dawoud"
+target="_blank">
 📷 Instagram
 </a>
 
-<a class="instapay" href="#">
-💳 Instapay
-<br>
-01020808359
+<div
+class="btn instapay"
+onclick="copyInstapay()">
+💳 اضغط لنسخ رقم Instapay
+</div>
+
+<a class="btn call"
+href="tel:01020808359">
+📞 اتصل الآن
 </a>
 
-<div class="footer">
-شكراً لزيارتكم ❤️
+<div class="offer">
+
+🔥 عروض اليوم 🔥
+
+<br><br>
+
+كيلو بن محوج فاخر
+
+<br>
+
+متوفر بأفضل جودة
+
 </div>
+
+<div class="footer">
+
+شكراً لزيارتكم ❤️
+
+</div>
+<script>
+
+function copyInstapay(){
+
+navigator.clipboard.writeText("01020808359");
+
+alert("تم نسخ رقم Instapay");
+
+}
+
+</script>
 
 </div>
 
 </body>
+
 </html>
