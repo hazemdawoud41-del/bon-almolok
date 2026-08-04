@@ -1,47 +1,188 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>بن الملوك | أجود أنواع البن العالمية</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <meta name="description" content="بن الملوك - أجود أنواع البن العالمية - بركة السبع - المنوفية">
+    <meta name="keywords" content="بن الملوك, بن, قهوة, بن محوج, بن سادة, مطاحن بن, بركة السبع, المنوفية">
+    <meta name="author" content="بن الملوك">
 </head>
 
+<button id="topBtn" title="العودة للأعلى">↑</button>
+
+<div id="lightbox">
+    <span id="closeLightbox">&times;</span>
+    <img id="lightboxImg" src="" alt="صورة">
+</div>
+<a href="tel:01020808359" class="call-float" aria-label="اتصل بنا">
+    📞
+</a>
 <body>
 
+<!-- Loading -->
+<div id="loader">
+    <img src="logo.png" alt="بن الملوك">
+    <h2>بن الملوك</h2>
+</div>
+
 <header>
+
     <div class="logo">
         <img src="logo.png" alt="بن الملوك">
     </div>
 
     <nav>
-        <a href="#">الرئيسية</a>
-        <a href="#">منتجاتنا</a>
-        <a href="#">المعرض</a>
-        <a href="#">تواصل معنا</a>
+        <a href="#home">الرئيسية</a>
+        <a href="#features">لماذا نحن</a>
+        <a href="#products">منتجاتنا</a>
+        <a href="#gallery">المعرض</a>
+        <a href="#contact">تواصل معنا</a>
     </nav>
+
 </header>
 
+<section class="hero" id="home">
 
-<section class="hero">
+    <div class="hero-overlay"></div>
 
-    <div class="hero-text">
+    <div class="hero-content">
+
+        <img src="logo.png" class="hero-logo" alt="بن الملوك">
+
         <h1>بن الملوك</h1>
 
         <h2>أجود أنواع البن العالمية</h2>
 
         <p>
-            مذاق فاخر وجودة نختارها بعناية لعشاق القهوة
+            لأن فنجان القهوة يستحق أفضل أنواع البن
         </p>
 
-        <a href="https://wa.me/201020808359" target="_blank">
-    <button>
-        اطلب الآن
-    </button>
-</a>
+        <div class="hero-buttons">
+
+            <a href="https://wa.me/201020808359" target="_blank" class="btn-gold">
+                اطلب الآن
+            </a>
+
+            <a href="#products" class="btn-outline">
+                تصفح المنتجات
+            </a>
+
+        </div>
+
+        <div class="scroll-down">
+            ↓
+        </div>
+
+    </div>
+
+</section> <!-- نهاية المعرض -->
+
+<section class="location" id="location">
+
+    <h2>موقعنا</h2>
+
+    <div class="map-box">
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4170.508463839497!2d31.087908323849955!3d30.635120490342725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f7daa18b3441cf%3A0xda22b46fdd71e787!2z2YXYt9it2YbYqSDYqNmGINin2YTZhdmE2YjZgw!5e1!3m2!1sar!2seg!4v1785866843088!5m2!1sar!2seg"
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+
+    </div>
+
+    <div class="map-btn">
+
+        <a href="https://maps.app.goo.gl/4qeHzewTVkYonna3A"
+           target="_blank"
+           class="btn-gold">
+
+            📍 فتح الموقع على Google Maps
+
+        </a>
+
+    </div>
 
 </section>
-<section class="products">
+
+<section class="contact" id="contact">
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features" id="features">
+<section class="stats" id="stats">
+
+    <div class="stat-card">
+        <h2 class="counter" data-target="12">0</h2>
+        <p>سنة خبرة</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 class="counter" data-target="5000">0</h2>
+        <p>عميل سعيد</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 class="counter" data-target="30">0</h2>
+        <p>نوع بن</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>100%</h2>
+        <p>جودة</p>
+    </div>
+
+</section>
+
+    <h2>لماذا بن الملوك؟</h2>
+
+    <div class="features-box">
+
+        <div class="feature-card">
+            <div class="icon">☕</div>
+            <h3>أجود أنواع البن</h3>
+            <p>نختار أفضل أنواع البن بعناية لنضمن أفضل مذاق.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🔥</div>
+            <h3>تحميص وطحن طازج</h3>
+            <p>تحميص يومي للحفاظ على أفضل نكهة.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">⭐</div>
+            <h3>خبرة وثقة</h3>
+            <p>سنوات طويلة من الخبرة في عالم البن.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">❤️</div>
+            <h3>رضا العملاء</h3>
+            <p>ثقة عملائنا هي سر نجاحنا.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="products" id="products">
 
     <h2>منتجاتنا</h2>
 
@@ -49,23 +190,51 @@
 
         <div class="card">
             <h3>بن محوج</h3>
-            <p>خلطة مميزة بطعم غني ورائحة فاخرة</p>
+            <p>خلطة مميزة بطعم غني ورائحة فاخرة.</p>
         </div>
 
         <div class="card">
             <h3>بن سادة</h3>
-            <p>اختيار عشاق القهوة الأصلية</p>
+            <p>لعشاق القهوة الأصلية.</p>
         </div>
 
         <div class="card">
             <h3>خلطات خاصة</h3>
-            <p>تركيبات بن الملوك المميزة</p>
+            <p>تركيبات خاصة من بن الملوك.</p>
         </div>
 
     </div>
 
 </section>
-<section class="gallery">
+<section class="testimonials" id="testimonials">
+
+    <h2>آراء عملائنا</h2>
+
+    <div class="testimonial-box">
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"أفضل بن جربته.. الطعم ثابت والجودة ممتازة."</p>
+            <h4>محمد أحمد</h4>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"التعامل محترم والتحميص ممتاز، أنصح به."</p>
+            <h4>أحمد السيد</h4>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"بن الملوك بقى اختياري الأول كل مرة."</p>
+            <h4>محمود علي</h4>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="gallery" id="gallery">
 
     <h2>المعرض</h2>
 
@@ -78,46 +247,60 @@
     </div>
 
 </section>
-<section class="contact">
+
+<section class="contact" id="contact">
 
     <h2>تواصل معنا</h2>
 
-    <p>
-        يسعدنا استقبال طلباتكم واستفساراتكم
-    </p>
+    <p>يسعدنا استقبال طلباتكم واستفساراتكم</p>
 
-    <p>
-        📍 بركة السبع - المنوفية
-    </p>
+    <p>📍 بركة السبع - المنوفية</p>
 
     <div class="contact-links">
 
-    <a href="https://wa.me/201020808359" target="_blank">
-        واتساب
-    </a>
+        <a href="https://wa.me/201020808359" target="_blank">
+            واتساب
+        </a>
 
-    <a href="https://www.facebook.com/CoffeeElMolouk/" target="_blank">
-        فيسبوك
-    </a>
+        <a href="https://www.facebook.com/CoffeeElMolouk/" target="_blank">
+            فيسبوك
+        </a>
 
-    <a href="#" target="_blank">
-        انستجرام
-    </a>
+        <a href="#" target="_blank">
+            إنستجرام
+        </a>
 
-</div>
+    </div>
 
-<div class="qr">
-    <h3>امسح الكود للتواصل معنا</h3>
-    <img src="qr.png" alt="QR بن الملوك">
-</div>
+    <div class="qr">
+
+        <h3>امسح الكود للتواصل معنا</h3>
+
+        <img src="qr.png" alt="QR بن الملوك">
+
+    </div>
 
 </section>
 
 <footer>
-    © 2014 بن الملوك
+
+    <p>© 2014 بن الملوك - جميع الحقوق محفوظة</p>
+
 </footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/201020808359"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="WhatsApp">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+         alt="WhatsApp">
+
+</a>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
