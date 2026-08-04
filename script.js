@@ -159,3 +159,45 @@ if(lightbox){
     };
 
 }
+function sendOrder(){
+
+    let type = document.getElementById("coffeeType").value;
+
+    let qty = document.getElementById("coffeeQty").value;
+
+
+    let message =
+    "السلام عليكم، أريد طلب:\n\n" +
+    "نوع البن: " + type +
+    "\nالكمية: " + qty;
+
+
+    let url =
+    "https://wa.me/201020808359?text=" +
+    encodeURIComponent(message);
+
+
+    window.open(url,"_blank");
+
+}
+function sendOrder(){
+
+    let type = document.getElementById("coffeeType").value;
+
+    let qty = document.getElementById("coffeeQty").value;
+
+
+    let message =
+    "السلام عليكم، أريد طلب:\n\n" +
+    "نوع البن: " + type +
+    "\nالكمية: " + qty;
+
+
+    let url =
+    "https://wa.me/201020808359?text=" +
+    encodeURIComponent(message);
+
+
+    window.open(url,"_blank");
+
+}

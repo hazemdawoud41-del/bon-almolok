@@ -1253,3 +1253,61 @@ html{
 
 
 }
+/* ===== Quick Order ===== */
+
+.quick-order{
+    padding:70px 10%;
+    text-align:center;
+    background:#111;
+}
+
+
+.quick-order h2{
+    color:#d4af37;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+
+.quick-order p{
+    color:#ddd;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+
+.quick-order select{
+
+    width:250px;
+    padding:15px;
+    margin:10px;
+    border-radius:30px;
+    border:2px solid #d4af37;
+    background:#000;
+    color:#fff;
+    font-size:18px;
+
+}
+
+
+.quick-order button{
+
+    margin-top:20px;
+    padding:15px 40px;
+    border-radius:30px;
+    border:none;
+    background:#d4af37;
+    color:#000;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+
+.quick-order button:hover{
+
+    background:#fff;
+    transform:scale(1.05);
+
+}
