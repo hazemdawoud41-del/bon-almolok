@@ -1,64 +1,52 @@
 // Loading Screen
 window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("loader").classList.add("hide");
-    }, 1200);
+    const loader = document.getElementById("loader");
+
+    if (loader) {
+        setTimeout(() => {
+            loader.classList.add("hide");
+        }, 1200);
+    }
 });
+
 
 // Scroll Animation
 const hiddenElements = document.querySelectorAll(
-".features,.feature-card,.products,.testimonials,.testimonial-card,.gallery,.contact,.card"
+    ".features,.feature-card,.products,.testimonials,.testimonial-card,.gallery,.contact,.card,.about,.stats"
 );
 
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
             entry.target.classList.add("show");
         }
     });
 });
 
-hiddenElements.forEach((el)=>{
+hiddenElements.forEach(el => {
     el.classList.add("hidden");
     observer.observe(el);
 });
-/* ===== Hero Background Slider ===== */
 
-const hero = document.querySelector(".hero");
 
-const backgrounds = [
-    "coffee1.jpg",
-    "coffee2.jpg",
-    "coffee3.jpg"
-];
+// Fade In
+const fadeElements = document.querySelectorAll(".fade-in");
 
-let current = 0;
-
-setInterval(() => {
-
-    current++;
-
-    if(current >= backgrounds.length){
-        current = 0;
-    }
-
-    hero.style.backgroundImage =
-    `url(${backgrounds[current]})`;
-
-},4000);
-// سهم النزول
-
-document.querySelector(".scroll-down").onclick=function(){
-
-document.querySelector("#features").scrollIntoView({
-
-behavior:"smooth"
-
+const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+            fadeObserver.unobserve(entry.target);
+        }
+    });
 });
 
-};
-/* ===== Counter Animation ===== */
+fadeElements.forEach(el => {
+    fadeObserver.observe(el);
+});
 
+
+// Counter Animation
 const counters = document.querySelectorAll(".counter");
 
 const counterObserver = new IntersectionObserver((entries)=>{
@@ -68,29 +56,26 @@ const counterObserver = new IntersectionObserver((entries)=>{
         if(entry.isIntersecting){
 
             const counter = entry.target;
-
-            const target = +counter.dataset.target;
+            const target = Number(counter.dataset.target);
 
             let count = 0;
 
-            const speed = target / 100;
+            const update = () => {
 
-            const update = ()=>{
-
-                count += speed;
+                const speed = target / 80;
 
                 if(count < target){
 
-                    counter.innerText = Math.floor(count);
+                    count += speed;
+                    counter.innerText = Math.ceil(count) + "+";
 
-                    requestAnimationFrame(update);
+                    setTimeout(update,25);
 
                 }else{
 
                     counter.innerText = target + "+";
 
                 }
-
             };
 
             update();
@@ -103,49 +88,74 @@ const counterObserver = new IntersectionObserver((entries)=>{
 
 });
 
-counters.forEach(counter=>counterObserver.observe(counter));
-/* ===== Back To Top ===== */
 
+counters.forEach(counter=>{
+    counterObserver.observe(counter);
+});
+
+
+// Back To Top
 const topBtn = document.getElementById("topBtn");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    if (window.scrollY > 400) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
+    if(window.scrollY > 500){
+        topBtn.style.display="block";
+    }else{
+        topBtn.style.display="none";
     }
 
 });
 
-topBtn.addEventListener("click", () => {
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+if(topBtn){
 
-});
-/* ===== Lightbox ===== */
+    topBtn.onclick = () => {
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    };
 
-const galleryImages = document.querySelectorAll(".gallery img");
+}
+
+
+// Gallery Lightbox
+const galleryImages = document.querySelectorAll(".gallery-box img");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const closeLightbox = document.getElementById("closeLightbox");
 
-galleryImages.forEach(img => {
-    img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
+
+galleryImages.forEach(img=>{
+
+    img.onclick = ()=>{
+
+        lightbox.style.display="flex";
         lightboxImg.src = img.src;
-    });
+
+    };
+
 });
 
-closeLightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-});
 
-lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-        lightbox.style.display = "none";
-    }
-});
+if(closeLightbox){
+
+    closeLightbox.onclick = ()=>{
+        lightbox.style.display="none";
+    };
+
+}
+
+
+if(lightbox){
+
+    lightbox.onclick = (e)=>{
+
+        if(e.target === lightbox){
+            lightbox.style.display="none";
+        }
+
+    };
+
+}
