@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tahoma", sans-serif;
+}
+
+body {
+    background: #050505;
+    color: white;
+}
+
+header {
+    width: 100%;
+    padding: 15px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    border-bottom: 1px solid #b8862c;
+
+}
+
+.logo {
+    font-size: 35px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+
+.hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.65),
+    rgba(0,0,0,.85)
+    ),
+    url("coffee.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+.hero-text h1 {
+    font-size: 70px;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+
+.hero-text h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+
+.hero-text p {
+    font-size: 22px;
+    color: #ddd;
+    margin-bottom: 40px;
+}
+
+
+button {
+    background: #d4af37;
+    color: #000;
+    border: 2px solid #d4af37;
+    padding: 16px 55px;
+    border-radius: 40px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: transparent;
+    color: #d4af37;
+    transform: scale(1.08);
+}
+.products {
+    padding: 70px 8%;
+    text-align: center;
+    background: #0b0b0b;
+}
+
+.products h2 {
+    font-size: 45px;
+    color: #d4af37;
+    margin-bottom: 40px;
+}
+
+.product-box {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #000;
+    border: 1px solid #d4af37;
+    width: 280px;
+    padding: 30px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    color: #d4af37;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #ddd;
+    font-size: 18px;
+}
+.gallery {
+    padding: 70px 8%;
+    text-align: center;
+    background: #050505;
+}
+
+.gallery h2 {
+    font-size: 45px;
+    color: #d4af37;
+    margin-bottom: 40px;
+}
+
+.gallery-box {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.gallery-box img {
+    width: 320px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 2px solid #d4af37;
+    transition: .3s;
+}
+
+.gallery-box img:hover {
+    transform: scale(1.05);
+}
+.contact {
+    padding: 70px 8%;
+    text-align: center;
+    background: #0b0b0b;
+}
+
+.contact h2 {
+    font-size: 45px;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 22px;
+    color: #ddd;
+    margin-bottom: 35px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: #000;
+    background: #d4af37;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.contact-links a:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #000;
+    color: #d4af37;
+    font-size: 18px;
+}
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 15px;
+    }
+
+    .logo img {
+        width: 110px;
+    }
+
+    .hero-text h1 {
+        font-size: 45px;
+    }
+
+    .hero-text h2 {
+        font-size: 25px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .gallery-box img {
+        width: 90%;
+        height: auto;
+    }
+
+}
+.qr {
+    margin-top: 40px;
+}
+
+.qr h3 {
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.qr img {
+    width: 180px;
+    height: 180px;
+    border: 5px solid #d4af37;
+    border-radius: 15px;
+}
