@@ -1,212 +1,267 @@
-// Loading Screen
+// =========================
+// LOADER
+// =========================
+
 window.addEventListener("load", () => {
+
     const loader = document.getElementById("loader");
 
     if (loader) {
+
         setTimeout(() => {
+
             loader.classList.add("hide");
+
         }, 1200);
+
     }
+
 });
 
 
-// Scroll Animation
+// =========================
+// SCROLL ANIMATION
+// =========================
+
 const hiddenElements = document.querySelectorAll(
-    ".features,.feature-card,.products,.testimonials,.testimonial-card,.gallery,.contact,.card,.about,.stats"
+".features,.feature-card,.journey,.journey-item,.products,.card,.gallery,.gallery-box,.testimonials,.testimonial-card,.about,.location,.contact"
 );
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-});
-
-hiddenElements.forEach(el => {
-    el.classList.add("hidden");
-    observer.observe(el);
-});
-
-
-// Fade In
-const fadeElements = document.querySelectorAll(".fade-in");
-
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-            fadeObserver.unobserve(entry.target);
-        }
-    });
-});
-
-fadeElements.forEach(el => {
-    fadeObserver.observe(el);
-});
-
-
-// Counter Animation
-const counters = document.querySelectorAll(".counter");
-
-const counterObserver = new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver((entries)=>{
 
     entries.forEach(entry=>{
 
         if(entry.isIntersecting){
 
-            const counter = entry.target;
-            const target = Number(counter.dataset.target);
-
-            let count = 0;
-
-            const update = () => {
-
-                const speed = target / 80;
-
-                if(count < target){
-
-                    count += speed;
-                    counter.innerText = Math.ceil(count) + "+";
-
-                    setTimeout(update,25);
-
-                }else{
-
-                    counter.innerText = target + "+";
-
-                }
-            };
-
-            update();
-
-            counterObserver.unobserve(counter);
+            entry.target.classList.add("show");
 
         }
 
     });
 
+},{
+    threshold:.15
 });
 
+hiddenElements.forEach(el=>{
 
-counters.forEach(counter=>{
-    counterObserver.observe(counter);
-});
+    el.classList.add("hidden");
 
-
-// Back To Top
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY > 500){
-        topBtn.style.display="block";
-    }else{
-        topBtn.style.display="none";
-    }
+    observer.observe(el);
 
 });
 
 
-if(topBtn){
+// =========================
+// COUNTER
+// =========================
 
-    topBtn.onclick = () => {
-        window.scrollTo({
-            top:0,
-            behavior:"smooth"
-        });
-    };
+const counters = document.querySelectorAll(".counter");
+
+const counterObserver = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+const counter=entry.target;
+
+const target=+counter.dataset.target;
+
+let count=0;
+
+const update=()=>{
+
+const speed=target/80;
+
+if(count<target){
+
+count+=speed;
+
+counter.innerText=Math.ceil(count)+"+";
+
+setTimeout(update,25);
+
+}else{
+
+counter.innerText=target+"+";
 
 }
 
+};
 
-// Gallery Lightbox
+update();
+
+counterObserver.unobserve(counter);
+
+}
+
+});
+
+});
+
+counters.forEach(counter=>{
+
+counterObserver.observe(counter);
+
+});
+
+
+// =========================
+// BACK TO TOP
+// =========================
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(!topBtn) return;
+
+if(window.scrollY>500){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+if(topBtn){
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+}
+// =========================
+// GALLERY LIGHTBOX
+// =========================
+
 const galleryImages = document.querySelectorAll(".gallery-box img");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const closeLightbox = document.getElementById("closeLightbox");
 
+if (galleryImages.length && lightbox && lightboxImg) {
 
-galleryImages.forEach(img=>{
+    galleryImages.forEach(img => {
 
-    img.onclick = ()=>{
+        img.addEventListener("click", () => {
 
-        lightbox.style.display="flex";
-        lightboxImg.src = img.src;
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
 
-    };
-
-});
-
-
-if(closeLightbox){
-
-    closeLightbox.onclick = ()=>{
-        lightbox.style.display="none";
-    };
-
-}
-
-
-if(lightbox){
-
-    lightbox.onclick = (e)=>{
-
-        if(e.target === lightbox){
-            lightbox.style.display="none";
-        }
-
-    };
-
-}
-function sendOrder(){
-
-    let type = document.getElementById("coffeeType").value;
-
-    let qty = document.getElementById("coffeeQty").value;
-
-
-    let message =
-    "السلام عليكم، أريد طلب:\n\n" +
-    "نوع البن: " + type +
-    "\nالكمية: " + qty;
-
-
-    let url =
-    "https://wa.me/201020808359?text=" +
-    encodeURIComponent(message);
-
-
-    window.open(url,"_blank");
-
-}
-function sendOrder(){
-
-    let type = document.getElementById("coffeeType").value;
-
-    let qty = document.getElementById("coffeeQty").value;
-
-
-    let message =
-    "السلام عليكم، أريد طلب:\n\n" +
-    "نوع البن: " + type +
-    "\nالكمية: " + qty;
-
-
-    let url =
-    "https://wa.me/201020808359?text=" +
-    encodeURIComponent(message);
-
-
-    window.open(url,"_blank");
-
-}
-if ("serviceWorker" in navigator) {
-
-    window.addEventListener("load", () => {
-
-        navigator.serviceWorker.register("service-worker.js");
+        });
 
     });
 
 }
+
+if (closeLightbox) {
+
+    closeLightbox.addEventListener("click", () => {
+
+        lightbox.style.display = "none";
+
+    });
+
+}
+
+if (lightbox) {
+
+    lightbox.addEventListener("click", (e) => {
+
+        if (e.target === lightbox) {
+
+            lightbox.style.display = "none";
+
+        }
+
+    });
+
+}
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape" && lightbox) {
+
+        lightbox.style.display = "none";
+
+    }
+
+});
+
+
+// =========================
+// HEADER SHADOW
+// =========================
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if (!header) return;
+
+    if (window.scrollY > 60) {
+
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
+
+    } else {
+
+        header.style.boxShadow = "none";
+
+    }
+
+});
+
+
+// =========================
+// ACTIVE MENU
+// =========================
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const top = section.offsetTop - 120;
+        const height = section.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < top + height) {
+            current = section.id;
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+
+    });
+
+});
+
+
+// =========================
+// END
+// =========================
