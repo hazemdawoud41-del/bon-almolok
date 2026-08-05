@@ -378,15 +378,25 @@ transform:translateY(0);
 
 @keyframes logoHero{
 
-0%,100%{
+0%{
 
-transform:translateY(0);
+    transform:translateY(0) scale(1);
 
 }
 
 50%{
 
-transform:translateY(-10px);
+    transform:translateY(-15px) scale(1.05);
+
+}
+
+100%{
+
+    transform:translateY(0) scale(1);
+
+}
+
+}
 
 }
 
@@ -1345,9 +1355,19 @@ nav a{
 
 }
 
-.hero h2{
+.hero h1{
 
-    font-size:20px;
+    font-family:"Marhey", cursive;
+
+    font-size:68px;
+
+    color:var(--gold);
+
+    margin-bottom:15px;
+
+    text-shadow:0 0 25px rgba(212,175,55,.35);
+
+}
 
 }
 
@@ -1362,7 +1382,52 @@ section{
     padding:60px 5%;
 
 }
+/* فونت اسم البراند */
+.hero h1,
+#loader h2{
 
+    font-family:"Marhey", cursive;
+
+    font-weight:800;
+
+}
+
+
+/* عناوين الأقسام */
+section h2,
+.card h3,
+.feature-card h3,
+.journey-item h3{
+
+    font-family:"Cairo",sans-serif;
+
+    font-weight:700;
+
+}
+/* ===== Welcome Logo ===== */
+
+#loader img{
+
+    width:260px !important;
+    height:auto;
+
+    filter:drop-shadow(0 0 25px rgba(212,175,55,.55));
+
+}
+
+
+/* ===== Main Hero Logo ===== */
+
+.hero-logo{
+
+    width:260px !important;
+    height:auto;
+
+    filter:drop-shadow(0 0 25px rgba(212,175,55,.45));
+
+    animation:logoHero 4s ease-in-out infinite;
+
+}
 .feature-card,
 .journey-item,
 .card,
@@ -1402,3 +1467,691 @@ section{
 /* ===================================
    END
 =================================== */
+/* =======================
+   STATS
+======================= */
+
+.stats{
+
+    background:#0b0b0b;
+
+    text-align:center;
+
+}
+
+.stats-box{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-top:40px;
+
+}
+
+.stat-card{
+
+    background:#151515;
+
+    border:1px solid rgba(212,175,55,.2);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#d4af37;
+
+    box-shadow:0 15px 35px rgba(212,175,55,.25);
+
+}
+
+.stat-card h3{
+
+    color:#d4af37;
+
+    font-size:46px;
+
+    margin-bottom:12px;
+
+}
+
+.stat-card p{
+
+    color:#ddd;
+
+    font-size:18px;
+
+}
+.logo-box img{
+
+    width:130px;
+    height:auto;
+
+}
+
+.hero-logo{
+
+    width:180px !important;
+    height:auto;
+
+}
+/* تكبير لوجو شاشة الترحيب */
+#loader img{
+
+    width:260px !important;
+    height:auto;
+
+}
+
+
+/* تكبير لوجو الهيرو المتحرك داخل الموقع */
+.hero-logo{
+
+    width:260px !important;
+    height:auto;
+    margin-bottom:35px;
+
+}
+.hero-logo{
+
+    filter:drop-shadow(0 0 20px rgba(212,175,55,.5));
+
+}
+/* ===== Mobile Final Touch ===== */
+
+@media (max-width:768px){
+
+    .hero-logo{
+
+        width:190px !important;
+
+    }
+
+
+    .hero h1{
+
+        font-size:42px;
+
+    }
+
+
+    .hero h2{
+
+        font-size:24px;
+
+    }
+
+
+    .hero p{
+
+        font-size:17px;
+
+        padding:0 10px;
+
+    }
+
+
+    .btn-gold,
+    .btn-outline{
+
+        width:90%;
+
+        max-width:300px;
+
+    }
+
+
+    .stats-box,
+    .features-box,
+    .journey-box,
+    .product-box{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    #loader img{
+
+        width:210px !important;
+
+    }
+
+}
+/* ===================================
+   CINEMATIC HERO
+=================================== */
+
+/* دخان القهوة */
+
+.smoke{
+
+    position:absolute;
+
+    bottom:120px;
+
+    width:220px;
+
+    height:220px;
+
+    background:radial-gradient(circle,
+    rgba(255,255,255,.18) 0%,
+    rgba(255,255,255,.08) 35%,
+    transparent 75%);
+
+    filter:blur(35px);
+
+    animation:smokeMove 8s linear infinite;
+
+    pointer-events:none;
+
+}
+
+.smoke1{
+
+    left:45%;
+    animation-delay:0s;
+
+}
+
+.smoke2{
+
+    left:50%;
+    animation-delay:2s;
+
+}
+
+.smoke3{
+
+    left:55%;
+    animation-delay:4s;
+
+}
+
+@keyframes smokeMove{
+
+0%{
+
+    transform:translateY(0) scale(.8);
+
+    opacity:0;
+
+}
+
+25%{
+
+    opacity:.4;
+
+}
+
+100%{
+
+    transform:translateY(-280px) scale(1.6);
+
+    opacity:0;
+
+}
+
+}
+
+/* حبوب البن */
+
+.beans span{
+
+    position:absolute;
+
+    font-size:26px;
+
+    opacity:.25;
+
+    animation:beansFloat 10s ease-in-out infinite;
+
+}
+
+.beans span:nth-child(1){
+
+    top:18%;
+    left:10%;
+
+}
+
+.beans span:nth-child(2){
+
+    top:28%;
+    right:12%;
+    animation-delay:2s;
+
+}
+
+.beans span:nth-child(3){
+
+    bottom:18%;
+    left:18%;
+    animation-delay:4s;
+
+}
+
+.beans span:nth-child(4){
+
+    bottom:22%;
+    right:15%;
+    animation-delay:6s;
+
+}
+
+.beans span:nth-child(5){
+
+    top:12%;
+    left:50%;
+    animation-delay:8s;
+
+}
+
+.beans span:nth-child(6){
+
+    bottom:12%;
+    right:45%;
+    animation-delay:3s;
+
+}
+
+@keyframes beansFloat{
+
+0%,100%{
+
+    transform:translateY(0) rotate(0deg);
+
+}
+
+50%{
+
+    transform:translateY(-18px) rotate(12deg);
+
+}
+
+}
+
+/* إضاءة خلف اللوجو */
+
+.hero-logo{
+
+    filter:
+        drop-shadow(0 0 20px rgba(212,175,55,.5))
+        drop-shadow(0 0 40px rgba(212,175,55,.3));
+
+}
+/* الدخان فوق الخلفية وتحت المحتوى */
+.smoke{
+
+    z-index:1;
+
+}
+
+.beans{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+}
+/* ===========================
+   NEW CINEMATIC HERO
+=========================== */
+
+.hero{
+
+    position:relative;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    background:#050505;
+
+}
+
+/* الخلفية */
+
+.hero-bg{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.8)),
+        url("coffee1.jpg") center/cover;
+
+    transform:scale(1.08);
+
+    filter:brightness(.45);
+
+}
+
+/* الإضاءة الذهبية */
+
+.gold-light{
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(212,175,55,.35),
+    transparent 70%);
+
+    animation:goldPulse 5s infinite ease-in-out;
+
+}
+
+@keyframes goldPulse{
+
+0%,100%{
+
+transform:scale(1);
+
+opacity:.7;
+
+}
+
+50%{
+
+transform:scale(1.15);
+
+opacity:1;
+
+}
+
+}
+
+/* البخار */
+
+.steam{
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,.18),
+    transparent 70%);
+
+    filter:blur(45px);
+
+    bottom:220px;
+
+    animation:steamMove 7s infinite linear;
+
+}
+
+@keyframes steamMove{
+
+0%{
+
+transform:translateY(0) scale(.8);
+
+opacity:0;
+
+}
+
+25%{
+
+opacity:.35;
+
+}
+
+100%{
+
+transform:translateY(-260px) scale(1.6);
+
+opacity:0;
+
+}
+
+/* اللوجو */
+
+.hero-logo{
+
+    position:relative;
+
+    width:280px;
+
+    margin:auto;
+
+    display:block;
+
+    z-index:5;
+
+    animation:logoFloat 4s infinite ease-in-out;
+
+    filter:drop-shadow(0 0 25px rgba(212,175,55,.6));
+
+}
+
+@keyframes logoFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+.hero h1{
+
+    margin-top:20px;
+
+}
+/* ===========================
+   COFFEE BEANS ANIMATION
+=========================== */
+
+.coffee-beans{
+
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:2;
+
+}
+
+.bean{
+
+    position:absolute;
+    width:38px;
+    opacity:.85;
+    animation:beanFloat 8s ease-in-out infinite;
+
+}
+
+.bean1{top:15%;left:12%;animation-delay:0s;}
+.bean2{top:25%;right:15%;animation-delay:1s;}
+.bean3{top:58%;left:8%;animation-delay:2s;}
+.bean4{top:70%;right:12%;animation-delay:3s;}
+.bean5{top:12%;left:45%;animation-delay:4s;}
+.bean6{top:40%;right:35%;animation-delay:5s;}
+.bean7{bottom:12%;left:35%;animation-delay:6s;}
+.bean8{bottom:18%;right:40%;animation-delay:7s;}
+
+@keyframes beanFloat{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    25%{
+        transform:translateY(-12px) rotate(8deg);
+    }
+
+    50%{
+        transform:translateY(6px) rotate(-8deg);
+    }
+
+    75%{
+        transform:translateY(-8px) rotate(5deg);
+    }
+
+    100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+}
+/* ===== تحسين الموبايل ===== */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: 34px;
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        text-align: center;
+    }
+
+    .logo {
+        width: 170px;
+        max-width: 70%;
+        height: auto;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .btn,
+    button,
+    .contact a {
+        min-height: 48px;
+        padding: 12px 22px;
+        font-size: 16px;
+    }
+}
+/* ===== ترتيب العناصر للموبايل ===== */
+
+@media (max-width:768px){
+
+    .hero-content,
+    .about-content,
+    .products,
+    .features,
+    .gallery,
+    .contact{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:20px;
+    }
+
+    .product-card,
+    .feature-card,
+    .gallery img{
+        width:100%;
+        max-width:340px;
+    }
+
+    .hero-buttons{
+        display:flex;
+        flex-direction:column;
+        width:100%;
+        gap:15px;
+    }
+
+    .hero-buttons a{
+        width:100%;
+    }
+
+    iframe{
+        width:100%;
+        height:300px;
+    }
+
+    footer{
+        text-align:center;
+        padding:25px 15px;
+    }
+
+}
