@@ -265,3 +265,26 @@ window.addEventListener("scroll", () => {
 // =========================
 // END
 // =========================
+function changePrice(select, kiloPrice) {
+
+    let weight = select.value;
+
+    let finalPrice = kiloPrice * weight;
+
+    let priceBox = select.parentElement.querySelector(".price");
+
+    priceBox.innerHTML = Math.round(finalPrice) + " ج";
+}
+
+
+function orderWhatsApp(productName) {
+
+    let phone = "201XXXXXXXXX"; // حط رقم الواتساب بتاع بن الملوك هنا
+
+    let message = "السلام عليكم 👑☕%0A";
+    message += "أريد طلب: " + productName;
+
+    let url = "https://wa.me/" + phone + "?text=" + message;
+
+    window.open(url, "_blank");
+}
