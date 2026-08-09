@@ -1922,6 +1922,8 @@ opacity:1;
 }
 
 @keyframes steamMove{
+}
+}
 
 0%{
 
@@ -2805,7 +2807,4 @@ section{
     #coffee-menu .price {
         font-size: 22px;
     }
-}
-#coffee-menu {
-    background: red !important;
-}
+
