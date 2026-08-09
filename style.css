@@ -2806,3 +2806,6 @@ section{
         font-size: 22px;
     }
 }
+#coffee-menu {
+    background: red !important;
+}
