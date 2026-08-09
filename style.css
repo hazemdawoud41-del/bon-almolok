@@ -2577,451 +2577,232 @@ section{
     border-radius:10px;
 
 }
+/* =========================================================
+   BEN EL MOLOUK - PREMIUM COFFEE MENU
+   MENU ONLY - BLACK & GOLD
+   ========================================================= */
+
 .menu-section {
-    padding: 70px 20px;
-    background: radial-gradient(circle, #1a1a1a, #050505);
+    position: relative;
+    padding: 85px 20px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(212,175,55,.08), transparent 38%),
+        linear-gradient(180deg, #070707 0%, #030303 100%);
     text-align: center;
 }
 
+.menu-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(900px, 80%);
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, rgba(212,175,55,.8), transparent);
+}
+
 .menu-section h2 {
+    position: relative;
     color: #d4af37;
     font-size: 42px;
-    margin-bottom: 15px;
-    font-family: Cairo, sans-serif;
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-shadow: 0 0 18px rgba(212,175,55,.25);
 }
 
 .menu-subtitle {
-    color: #ddd;
+    position: relative;
+    color: #cfcfcf;
     font-size: 18px;
-    margin-bottom: 45px;
+    margin: 0 auto 45px;
 }
 
-
-/* ترتيب المنيو */
-
 #coffee-menu {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-
-/* كروت الأقسام */
-
-.menu-card {
-
-    background: linear-gradient(145deg,#151515,#080808);
-    border: 1px solid #d4af37;
-    border-radius: 25px;
-    padding: 30px;
-
-    box-shadow:
-    0 0 25px rgba(212,175,55,.20);
-
-    transition: .4s;
-}
-
-
-.menu-card:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow:
-    0 0 35px rgba(212,175,55,.45);
-
-}
-
-
-
-/* اسم القسم */
-
-.menu-card h3 {
-
-    color:#d4af37;
-
-    font-size:28px;
-
-    border-bottom:1px solid #d4af37;
-
-    padding-bottom:15px;
-
-    margin-bottom:25px;
-
-}
-
-
-
-/* المنتج */
-
-.product {
-
-    background:#050505;
-
-    border-radius:18px;
-
-    padding:18px;
-
-    margin-bottom:18px;
-
-    border:1px solid #333;
-
-}
-
-
-
-/* اسم الصنف */
-
-.product h4 {
-
-    color:#fff;
-
-    font-size:20px;
-
-    margin-bottom:15px;
-
-}
-
-
-
-/* اختيار الوزن */
-
-.product select {
-
-    background:#111;
-
-    color:#d4af37;
-
-    border:1px solid #d4af37;
-
-    padding:10px;
-
-    border-radius:10px;
-
-    width:100%;
-
-    margin-bottom:15px;
-
-}
-
-
-
-/* السعر */
-
-.price {
-
-    display:block;
-
-    color:#d4af37;
-
-    font-size:25px;
-
-    font-weight:bold;
-
-    margin:10px;
-
-}
-
-
-
-/* زر الطلب */
-
-.product button {
-
-    width:100%;
-
-    background:#d4af37;
-
-    color:#000;
-
-    border:none;
-
-    padding:12px;
-
-    border-radius:12px;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-.product button:hover {
-
-    background:#fff;
-
-    transform:scale(1.03);
-
-}
-
-
-/* تقسيمات برازيلي */
-
-.sub-title {
-
-    color:#d4af37;
-
-    font-size:22px;
-
-    margin:20px 0;
-
-}
-
-.product select {
-    padding: 10px;
-    border-radius: 8px;
-    background: #000;
-    color: #d4af37;
-    border: 1px solid #d4af37;
-}
-
-.price {
-    display: block;
-    color: #d4af37;
-    font-size: 22px;
-    font-weight: bold;
-    margin: 15px;
-}
-
-.product button {
-    background: #d4af37;
-    color: #000;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.product button:hover {
-    background: white;
-}
-.menu-section {
-    padding: 80px 20px;
-    background: linear-gradient(180deg,#050505,#111);
-}
-
-.menu-section h2 {
-    color: #d4af37;
-    font-size: 42px;
-    font-weight: bold;
-    text-shadow: 0 0 15px #d4af37;
-}
-
-.menu-subtitle {
-    color: #ddd;
-    font-size: 20px;
-    margin-bottom: 50px;
-}
-
-
-#coffee-menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    gap: 35px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-
-.menu-card {
-    background: rgba(15,15,15,.95);
-    border: 1px solid #d4af37;
-    border-radius: 25px;
-    padding: 30px 20px;
-    box-shadow: 0 0 30px rgba(212,175,55,.18);
-    transition: .4s;
-}
-
-
-.menu-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 40px rgba(212,175,55,.45);
-}
-
-
-.menu-card h3 {
-    color:#d4af37;
-    font-size:30px;
-    margin-bottom:30px;
-    border-bottom:1px solid #d4af37;
-    padding-bottom:15px;
-}
-
-
-.product {
-    background:#0b0b0b;
-    border-radius:18px;
-    padding:20px;
-    margin-bottom:20px;
-    border:1px solid #222;
-}
-
-
-.product h4 {
-    color:#fff;
-    font-size:21px;
-    margin-bottom:20px;
-}
-
-
-.product select {
-
-    width:100%;
-    padding:12px;
-    background:#000;
-    color:#d4af37;
-    border:1px solid #d4af37;
-    border-radius:12px;
-    font-size:17px;
-}
-
-
-.price {
-
-    display:block;
-    margin:20px auto;
-    width:max-content;
-    background:#d4af37;
-    color:#000;
-    padding:10px 25px;
-    border-radius:50px;
-    font-size:24px;
-    font-weight:bold;
-
-}
-
-
-.product button {
-
-    width:100%;
-    background:#d4af37;
-    color:#000;
-    border:none;
-    padding:15px;
-    border-radius:50px;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-
-}
-
-
-.product button:hover {
-
-    background:#fff;
-    transform:scale(1.05);
-
-}
-
-
-
-/* الموبايل */
-
-@media(max-width:600px){
-
-.menu-section h2{
-    font-size:32px;
-}
-
-.menu-card{
-    padding:20px 15px;
-}
-
-.product h4{
-    font-size:18px;
-}
-
-.price{
-    font-size:21px;
-}
-
-
-}
-body {
-    background: red !important;
-}
-.test-menu {
-    background:red !important;
-    padding:100px !important;
-}
-#coffee-menu {
-    border: 20px solid red !important;
-}
-body::before {
-    content:"TEST CSS شغال";
-    position:fixed;
-    top:0;
-    left:0;
-    background:red;
-    color:white;
-    font-size:30px;
-    z-index:99999;
-}
-#coffee-menu {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-    padding:30px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    text-align: right;
 }
 
 #coffee-menu .menu-card {
-    background:#111 !important;
-    border:2px solid #d4af37;
-    border-radius:25px;
-    padding:25px;
-    box-shadow:0 0 25px rgba(212,175,55,.3);
+    position: relative;
+    width: 100%;
+    padding: 28px;
+    background: linear-gradient(145deg, #151515 0%, #090909 65%, #050505 100%);
+    border: 1px solid rgba(212,175,55,.42);
+    border-radius: 22px;
+    box-shadow:
+        0 16px 40px rgba(0,0,0,.55),
+        inset 0 0 25px rgba(212,175,55,.025);
+    overflow: hidden;
+    transition: .35s ease;
+}
+
+#coffee-menu .menu-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 76%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+#coffee-menu .menu-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(212,175,55,.8);
+    box-shadow:
+        0 22px 50px rgba(0,0,0,.65),
+        0 0 28px rgba(212,175,55,.10);
 }
 
 #coffee-menu .menu-card h3 {
-    color:#d4af37;
-    font-size:28px;
-    text-align:center;
+    position: relative;
+    color: #d4af37;
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0 0 24px;
+    padding: 0 0 15px;
+    border-bottom: 1px solid rgba(212,175,55,.25);
 }
 
 #coffee-menu .product {
-    background:#050505;
-    border:1px solid #333;
-    border-radius:15px;
-    padding:15px;
-    margin-bottom:15px;
+    position: relative;
+    background: linear-gradient(145deg, #111 0%, #080808 100%);
+    border: 1px solid #292929;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 7px 20px rgba(0,0,0,.22);
+    transition: .3s ease;
+}
+
+#coffee-menu .product:last-child {
+    margin-bottom: 0;
+}
+
+#coffee-menu .product:hover {
+    border-color: rgba(212,175,55,.55);
+    transform: translateX(-3px);
 }
 
 #coffee-menu .product h4 {
-    color:white;
-    font-size:20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px;
 }
 
 #coffee-menu .price {
-    display:block;
-    color:#d4af37;
-    font-size:24px;
-    font-weight:bold;
-    margin:10px;
+    display: inline-block;
+    color: #d4af37;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 3px 0 14px;
+}
+
+#coffee-menu .sub-title {
+    color: #d4af37;
+    font-size: 21px;
+    font-weight: 800;
+    margin: 22px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(212,175,55,.16);
 }
 
 #coffee-menu select {
-    width:100%;
-    background:#111;
-    color:#d4af37;
-    border:1px solid #d4af37;
-    padding:10px;
-    border-radius:10px;
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    background: #070707;
+    color: #d4af37;
+    border: 1px solid rgba(212,175,55,.5);
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+#coffee-menu select:hover,
+#coffee-menu select:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 12px rgba(212,175,55,.10);
 }
 
 #coffee-menu button {
-    width:100%;
-    background:#d4af37;
-    color:#000;
-    border:0;
-    padding:12px;
-    border-radius:12px;
-    font-weight:bold;
+    width: 100%;
+    min-height: 45px;
+    margin-top: 11px;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 11px;
+    background: linear-gradient(135deg, #d4af37, #f0d477);
+    color: #080808;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+#coffee-menu button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px rgba(212,175,55,.22);
+}
+
+#coffee-menu del {
+    color: #777;
+}
+
+@media (max-width: 900px) {
+    #coffee-menu {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-section {
+        padding: 60px 14px;
+    }
+
+    .menu-section h2 {
+        font-size: 32px;
+    }
+
+    .menu-subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    #coffee-menu {
+        gap: 18px;
+    }
+
+    #coffee-menu .menu-card {
+        padding: 20px 15px;
+        border-radius: 18px;
+    }
+
+    #coffee-menu .menu-card h3 {
+        font-size: 23px;
+    }
+
+    #coffee-menu .product {
+        padding: 15px;
+    }
+
+    #coffee-menu .product h4 {
+        font-size: 18px;
+    }
+
+    #coffee-menu .price {
+        font-size: 22px;
+    }
 }
