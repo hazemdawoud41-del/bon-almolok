@@ -2807,4 +2807,28 @@ section{
     #coffee-menu .price {
         font-size: 22px;
     }
+/* FIX MENU RED BACKGROUND */
 
+#coffee-menu {
+    background: #050505 !important;
+}
+
+#coffee-menu .menu-card {
+    background: linear-gradient(145deg, #151515 0%, #090909 65%, #050505 100%) !important;
+}
+/* ===== FINAL COFFEE MENU FIX ===== */
+
+#coffee-menu {
+    background: #000 !important;
+    background-color: #000 !important;
+}
+
+#coffee-menu .menu-card {
+    background: #000 !important;
+    background-color: #000 !important;
+}
+
+.menu-section {
+    background: #000 !important;
+    background-color: #000 !important;
+}
