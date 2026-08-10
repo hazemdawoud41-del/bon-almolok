@@ -1936,76 +1936,505 @@ section h2 {
         0 0 45px rgba(212, 175, 55, .30);
 }
 
+```css
+/* =========================================================
+   FATHER SECTION - CINEMATIC PREMIUM
+   BEN EL MOLOUK
+========================================================= */
+
+.father-box {
+    position: relative;
+
+    width: min(1180px, 92%);
+    min-height: 500px;
+
+    margin: 55px auto;
+    padding: 38px 45px;
+
+    display: flex;
+    align-items: center;
+
+    /* الصورة شمال - الكلام يمين */
+    direction: ltr;
+
+    gap: 70px;
+
+    background:
+        radial-gradient(
+            circle at 18% 50%,
+            rgba(212, 175, 55, .16),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(212, 175, 55, .045),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #151515 0%,
+            #080808 50%,
+            #020202 100%
+        );
+
+    border: 1px solid rgba(212, 175, 55, .45);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, .75),
+        0 0 55px rgba(212, 175, 55, .08),
+        inset 0 0 60px rgba(212, 175, 55, .025);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   GOLDEN LIGHT BEHIND IMAGE
+========================================================= */
+
+.father-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    left: -150px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, .30) 0%,
+            rgba(212, 175, 55, .16) 25%,
+            rgba(212, 175, 55, .06) 45%,
+            transparent 72%
+        );
+
+    filter: blur(18px);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation: fatherGlow 5s ease-in-out infinite;
+}
+
+@keyframes fatherGlow {
+
+    0%,
+    100% {
+        opacity: .65;
+        transform: translateY(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   TOP GOLDEN LINE
+========================================================= */
+
+.father-box::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+
+    width: 84%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d4af37,
+            #f7df83,
+            #d4af37,
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px rgba(212, 175, 55, .55);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   FATHER IMAGE AREA
+========================================================= */
+
+.father-box img {
+    position: relative;
+
+    z-index: 3;
+
+    order: 1;
+
+    flex: 0 0 360px;
+
+    width: 360px;
+    height: 430px;
+
+    object-fit: cover;
+
+    /*
+       مهم:
+       لو الوالد في الصورة ناحية معينة
+       نقدر نغير الرقم ده بعد التجربة.
+    */
+    object-position: center center;
+
+    border-radius: 24px;
+
+    border: 2px solid rgba(212, 175, 55, .9);
+
+    background: #050505;
+
+    box-shadow:
+
+        0 0 0 7px rgba(212, 175, 55, .055),
+
+        0 0 0 12px rgba(212, 175, 55, .018),
+
+        0 25px 60px rgba(0, 0, 0, .75),
+
+        0 0 45px rgba(212, 175, 55, .22);
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease,
+        border-color .5s ease;
+
+    /*
+       يخلي الصورة تندمج بصرياً
+       مع الخلفية السوداء
+    */
+    mix-blend-mode: normal;
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+========================================================= */
+
+.father-box:hover img {
+
+    transform: scale(1.025);
+
+    border-color: #f4d979;
+
+    box-shadow:
+
+        0 0 0 7px rgba(212, 175, 55, .09),
+
+        0 0 0 12px rgba(212, 175, 55, .025),
+
+        0 30px 70px rgba(0, 0, 0, .85),
+
+        0 0 55px rgba(212, 175, 55, .34);
+}
+
+
+```css
+/* ==========================================
+   FATHER SECTION - PREMIUM LUXURY
+   BEN EL MOLOUK
+========================================== */
+
+.father-box {
+    position: relative;
+    width: min(1150px, 92%);
+    min-height: 500px;
+    margin: 55px auto;
+    padding: 35px 45px;
+
+    display: flex;
+    align-items: center;
+    gap: 65px;
+
+    /* الصورة شمال والنص يمين */
+    direction: ltr;
+
+    background:
+        radial-gradient(
+            circle at 18% 50%,
+            rgba(212, 175, 55, .16),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050505 0%,
+            #0b0b0b 45%,
+            #151515 100%
+        );
+
+    border: 1px solid rgba(212, 175, 55, .45);
+    border-radius: 30px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, .75),
+        0 0 50px rgba(212, 175, 55, .08),
+        inset 0 0 50px rgba(212, 175, 55, .025);
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   GOLDEN LIGHT BEHIND IMAGE
+========================================== */
+
+.father-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: -170px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, .30) 0%,
+            rgba(212, 175, 55, .12) 30%,
+            rgba(212, 175, 55, .04) 52%,
+            transparent 72%
+        );
+
+    filter: blur(15px);
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   TOP GOLD LINE
+========================================== */
+
+.father-box::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+
+    width: 80%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #b8860b,
+            #f2d06b,
+            #d4af37,
+            #f2d06b,
+            #b8860b,
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px rgba(212, 175, 55, .55);
+}
+
+
+/* ==========================================
+   FATHER IMAGE
+========================================== */
+
+.father-box img {
+    position: relative;
+
+    z-index: 3;
+
+    flex: 0 0 350px;
+
+    width: 350px;
+    height: 420px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 18px;
+
+    border: 2px solid #d4af37;
+
+    background: #000;
+
+    box-shadow:
+        0 0 0 6px rgba(212, 175, 55, .06),
+        0 0 0 12px rgba(212, 175, 55, .025),
+        0 25px 60px rgba(0, 0, 0, .80),
+        0 0 45px rgba(212, 175, 55, .25);
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease,
+        border-color .5s ease;
+}
+
+
+/* ==========================================
+   IMAGE HOVER
+========================================== */
+
+.father-box:hover img {
+    transform: scale(1.025);
+
+    border-color: #f2d06b;
+
+    box-shadow:
+        0 0 0 6px rgba(212, 175, 55, .09),
+        0 0 0 12px rgba(212, 175, 55, .04),
+        0 30px 70px rgba(0, 0, 0, .9),
+        0 0 55px rgba(212, 175, 55, .35);
+}
+
+
 /* ==========================================
    FATHER TEXT
 ========================================== */
 
 .father-text {
     position: relative;
-    z-index: 3;
+
+    z-index: 4;
+
     flex: 1;
+
     direction: rtl;
+
     text-align: right;
-    padding: 15px 10px;
+
+    padding: 15px 5px;
 }
+
+
+/* ==========================================
+   SMALL GOLD LABEL
+========================================== */
 
 .father-text::before {
     content: "بن الملوك";
+
     display: block;
+
     color: #d4af37;
+
     font-size: 15px;
+
     font-weight: 800;
-    letter-spacing: 2px;
+
+    letter-spacing: 3px;
+
     margin-bottom: 12px;
+
     opacity: .9;
 }
 
+
+/* ==========================================
+   MAIN TITLE
+========================================== */
+
 .father-text h3 {
     position: relative;
-    margin: 0 0 22px;
+
+    margin: 0 0 25px;
+
     padding-bottom: 18px;
+
     color: #d4af37;
+
     font-family: "Cairo", sans-serif;
-    font-size: 38px;
+
+    font-size: 40px;
+
     font-weight: 900;
-    line-height: 1.4;
+
+    line-height: 1.45;
 
     text-shadow:
-        0 0 18px rgba(212, 175, 55, .20);
+        0 0 20px rgba(212, 175, 55, .25);
 }
+
+
+/* ==========================================
+   TITLE GOLD LINE
+========================================== */
 
 .father-text h3::after {
     content: "";
+
     position: absolute;
+
     right: 0;
     bottom: 0;
-    width: 115px;
-    height: 3px;
-    border-radius: 10px;
 
-    background: linear-gradient(
-        90deg,
-        #d4af37,
-        #f2d06b,
-        transparent
-    );
+    width: 125px;
+    height: 3px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d4af37,
+            #f2d06b,
+            transparent
+        );
 
     box-shadow:
-        0 0 12px rgba(212, 175, 55, .35);
+        0 0 15px rgba(212, 175, 55, .40);
 }
+
+
+/* ==========================================
+   FATHER DESCRIPTION
+========================================== */
 
 .father-text p {
     margin: 0;
+
+    max-width: 650px;
+
     color: #eeeeee;
+
     font-family: "Cairo", sans-serif;
+
     font-size: 19px;
-    line-height: 2.15;
-    max-width: 620px;
+
+    line-height: 2.2;
 }
+
+
+/* ==========================================
+   GOLD FIRST LETTER
+========================================== */
 
 .father-text p::first-letter {
     color: #f2d06b;
 }
+
 
 /* ==========================================
    TABLET
@@ -2015,14 +2444,17 @@ section h2 {
 
     .father-box {
         width: 94%;
-        gap: 35px;
-        padding: 24px;
+
+        gap: 40px;
+
+        padding: 30px;
     }
 
     .father-box img {
-        flex-basis: 280px;
-        width: 280px;
-        height: 360px;
+        flex: 0 0 290px;
+
+        width: 290px;
+        height: 370px;
     }
 
     .father-text h3 {
@@ -2031,9 +2463,11 @@ section h2 {
 
     .father-text p {
         font-size: 17px;
+
         line-height: 2;
     }
 }
+
 
 /* ==========================================
    MOBILE
@@ -2042,82 +2476,119 @@ section h2 {
 @media (max-width: 768px) {
 
     .father-box {
+
         width: calc(100% - 28px);
+
         min-height: 0;
-        margin: 30px auto;
-        padding: 22px 16px 28px;
+
+        margin: 35px auto;
+
+        padding: 25px 17px 30px;
 
         display: flex;
+
         flex-direction: column;
-        gap: 28px;
+
+        align-items: center;
+
+        gap: 30px;
 
         direction: ltr;
-        text-align: center;
-        border-radius: 24px;
+
+        border-radius: 25px;
     }
 
+
+    /* الإضاءة خلف الصورة */
+
     .father-box::before {
-        width: 330px;
-        height: 330px;
+
+        width: 360px;
+        height: 360px;
+
         left: 50%;
-        top: -60px;
+        top: -70px;
+
         transform: translateX(-50%);
     }
 
-    .father-box::after {
-        left: 10%;
-        width: 80%;
-    }
+
+    /* الصورة */
 
     .father-box img {
+
         flex: none;
 
-        width: min(290px, 82vw);
-        height: 360px;
+        width: min(300px, 84vw);
 
-        margin: 4px auto 0;
+        height: 370px;
 
-        border-radius: 20px;
+        margin: 0 auto;
+
+        border-radius: 18px;
+
         object-fit: cover;
-        object-position: center;
 
-        box-shadow:
-            0 0 0 6px rgba(212, 175, 55, .07),
-            0 18px 40px rgba(0, 0, 0, .65),
-            0 0 35px rgba(212, 175, 55, .20);
+        object-position: center;
     }
 
+
+    /* النص */
+
     .father-text {
+
         width: 100%;
+
         padding: 0 5px;
+
         direction: rtl;
+
         text-align: center;
     }
 
+
     .father-text::before {
+
         font-size: 13px;
+
+        letter-spacing: 2px;
+
         margin-bottom: 8px;
     }
 
+
     .father-text h3 {
-        font-size: 27px;
+
+        font-size: 28px;
+
         line-height: 1.5;
-        margin-bottom: 18px;
+
+        margin-bottom: 20px;
+
         padding-bottom: 16px;
     }
 
+
     .father-text h3::after {
+
         right: 50%;
+
         transform: translateX(50%);
+
         width: 90px;
     }
 
+
     .father-text p {
+
         font-size: 16px;
+
         line-height: 2;
+
         max-width: 100%;
     }
 }
+
 
 /* ==========================================
    SMALL PHONES
@@ -2126,29 +2597,45 @@ section h2 {
 @media (max-width: 480px) {
 
     .father-box {
-        width: calc(100% - 20px);
-        margin: 25px auto;
-        padding: 18px 12px 25px;
-        gap: 23px;
-        border-radius: 21px;
+
+        width: calc(100% - 18px);
+
+        margin: 28px auto;
+
+        padding: 20px 12px 27px;
+
+        gap: 24px;
+
+        border-radius: 22px;
     }
+
 
     .father-box img {
-        width: min(260px, 82vw);
-        height: 330px;
-        border-width: 3px;
+
+        width: min(270px, 84vw);
+
+        height: 335px;
+
+        border-width: 2px;
     }
 
+
     .father-text h3 {
+
         font-size: 24px;
     }
 
+
     .father-text p {
+
         font-size: 15px;
+
         line-height: 1.95;
     }
 }
 
+
 /* ==========================================
-   END
+   END FATHER SECTION
 ========================================== */
+
