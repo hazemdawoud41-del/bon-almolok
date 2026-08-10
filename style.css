@@ -1814,18 +1814,6 @@ section h2 {
    TABLET
 =================================== */
 
-@media (min-width: 769px) and (max-width: 1100px) {
-
-    .product-box {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* ===================================
-   END
-=================================== */
-
-```css
 /* ==========================================
    FATHER SECTION - PREMIUM BEN EL MOLOUK
 ========================================== */
@@ -1905,11 +1893,7 @@ section h2 {
         #d4af37,
         transparent
     );
-
-    box-shadow: 0 0 15px rgba(212, 175, 55, .45);
-}
-
-/* ==========================================
+   /* ==========================================
    FATHER IMAGE
 ========================================== */
 
@@ -1926,7 +1910,6 @@ section h2 {
     object-position: center;
 
     border-radius: 20px;
-
     border: 3px solid #d4af37;
 
     box-shadow:
@@ -1944,7 +1927,6 @@ section h2 {
 /* حركة بسيطة عند المرور */
 .father-box:hover img {
     transform: scale(1.025);
-
     border-color: #f2d06b;
 
     box-shadow:
@@ -1961,63 +1943,44 @@ section h2 {
 .father-text {
     position: relative;
     z-index: 3;
-
     flex: 1;
-
     direction: rtl;
     text-align: right;
-
     padding: 15px 10px;
 }
 
-/* عنوان صغير */
 .father-text::before {
     content: "بن الملوك";
-
     display: block;
-
     color: #d4af37;
     font-size: 15px;
     font-weight: 800;
-
     letter-spacing: 2px;
-
     margin-bottom: 12px;
-
     opacity: .9;
 }
 
-/* العنوان الرئيسي */
 .father-text h3 {
     position: relative;
-
     margin: 0 0 22px;
-
     padding-bottom: 18px;
-
     color: #d4af37;
-
     font-family: "Cairo", sans-serif;
     font-size: 38px;
     font-weight: 900;
-
     line-height: 1.4;
 
     text-shadow:
         0 0 18px rgba(212, 175, 55, .20);
 }
 
-/* خط تحت العنوان */
 .father-text h3::after {
     content: "";
-
     position: absolute;
     right: 0;
     bottom: 0;
-
     width: 115px;
     height: 3px;
-
     border-radius: 10px;
 
     background: linear-gradient(
@@ -2031,23 +1994,14 @@ section h2 {
         0 0 12px rgba(212, 175, 55, .35);
 }
 
-/* النص */
 .father-text p {
     margin: 0;
-
     color: #eeeeee;
-
     font-family: "Cairo", sans-serif;
     font-size: 19px;
-
     line-height: 2.15;
-
     max-width: 620px;
 }
-
-/* ==========================================
-   GOLD DECORATION
-========================================== */
 
 .father-text p::first-letter {
     color: #f2d06b;
@@ -2089,33 +2043,24 @@ section h2 {
 
     .father-box {
         width: calc(100% - 28px);
-
         min-height: 0;
-
         margin: 30px auto;
-
         padding: 22px 16px 28px;
 
         display: flex;
         flex-direction: column;
-
         gap: 28px;
 
         direction: ltr;
-
         text-align: center;
-
         border-radius: 24px;
     }
 
-    /* إضاءة خلف الصورة */
     .father-box::before {
         width: 330px;
         height: 330px;
-
         left: 50%;
         top: -60px;
-
         transform: translateX(-50%);
     }
 
@@ -2124,7 +2069,6 @@ section h2 {
         width: 80%;
     }
 
-    /* الصورة على الموبايل */
     .father-box img {
         flex: none;
 
@@ -2134,7 +2078,6 @@ section h2 {
         margin: 4px auto 0;
 
         border-radius: 20px;
-
         object-fit: cover;
         object-position: center;
 
@@ -2146,43 +2089,32 @@ section h2 {
 
     .father-text {
         width: 100%;
-
         padding: 0 5px;
-
         direction: rtl;
-
         text-align: center;
     }
 
     .father-text::before {
         font-size: 13px;
-
         margin-bottom: 8px;
     }
 
     .father-text h3 {
         font-size: 27px;
-
         line-height: 1.5;
-
         margin-bottom: 18px;
-
         padding-bottom: 16px;
     }
 
-    /* الخط في المنتصف على الموبايل */
     .father-text h3::after {
         right: 50%;
         transform: translateX(50%);
-
         width: 90px;
     }
 
     .father-text p {
         font-size: 16px;
-
         line-height: 2;
-
         max-width: 100%;
     }
 }
@@ -2195,20 +2127,15 @@ section h2 {
 
     .father-box {
         width: calc(100% - 20px);
-
         margin: 25px auto;
-
         padding: 18px 12px 25px;
-
         gap: 23px;
-
         border-radius: 21px;
     }
 
     .father-box img {
         width: min(260px, 82vw);
         height: 330px;
-
         border-width: 3px;
     }
 
@@ -2225,4 +2152,3 @@ section h2 {
 /* ==========================================
    END
 ========================================== */
-```
