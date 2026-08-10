@@ -398,9 +398,7 @@ transform:translateY(0);
 
 }
 
-}
 
-}
 
 .hero h1{
 
@@ -1462,7 +1460,6 @@ section h2,
 
 }
 
-}
 
 /* ===================================
    END
@@ -1922,29 +1919,17 @@ opacity:1;
 }
 
 @keyframes steamMove{
-}
-}
-
 0%{
-
-transform:translateY(0) scale(.8);
-
-opacity:0;
-
+    transform:translateY(0) scale(.8);
+    opacity:0;
 }
-
 25%{
-
-opacity:.35;
-
+    opacity:.35;
 }
-
 100%{
-
-transform:translateY(-260px) scale(1.6);
-
-opacity:0;
-
+    transform:translateY(-260px) scale(1.6);
+    opacity:0;
+}
 }
 
 /* اللوجو */
@@ -2579,256 +2564,126 @@ section{
     border-radius:10px;
 
 }
+
 /* =========================================================
-   BEN EL MOLOUK - PREMIUM COFFEE MENU
-   MENU ONLY - BLACK & GOLD
+   BEN EL MOLOUK - CLEAN PREMIUM MENU + CART
    ========================================================= */
 
-.menu-section {
-    position: relative;
-    padding: 85px 20px;
-    background:
-        radial-gradient(circle at 50% 0%, rgba(212,175,55,.08), transparent 38%),
-        linear-gradient(180deg, #070707 0%, #030303 100%);
-    text-align: center;
+.menu-section{
+    position:relative;
+    padding:80px 20px;
+    background:linear-gradient(180deg,#080808 0%,#030303 100%);
+    text-align:center;
+    overflow:hidden;
 }
-
-.menu-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: min(900px, 80%);
-    height: 1px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, transparent, rgba(212,175,55,.8), transparent);
+.menu-section::before{
+    content:"";
+    position:absolute;
+    top:0;left:50%;transform:translateX(-50%);
+    width:min(900px,80%);height:1px;
+    background:linear-gradient(90deg,transparent,rgba(212,175,55,.85),transparent);
 }
-
-.menu-section h2 {
-    position: relative;
-    color: #d4af37;
-    font-size: 42px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    text-shadow: 0 0 18px rgba(212,175,55,.25);
+.menu-title{
+    color:#d4af37;
+    font-size:42px;
+    font-weight:900;
+    margin:0 auto 10px;
+    text-shadow:0 0 18px rgba(212,175,55,.2);
 }
-
-.menu-subtitle {
-    position: relative;
-    color: #cfcfcf;
-    font-size: 18px;
-    margin: 0 auto 45px;
+.menu-subtitle{
+    color:#cfcfcf;
+    font-size:17px;
+    margin:0 auto 40px;
 }
-
-#coffee-menu {
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
-    text-align: right;
+#coffee-menu{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px;
+    text-align:right;
 }
-
-#coffee-menu .menu-card {
-    position: relative;
-    width: 100%;
-    padding: 28px;
-    background: linear-gradient(145deg, #151515 0%, #090909 65%, #050505 100%);
-    border: 1px solid rgba(212,175,55,.42);
-    border-radius: 22px;
-    box-shadow:
-        0 16px 40px rgba(0,0,0,.55),
-        inset 0 0 25px rgba(212,175,55,.025);
-    overflow: hidden;
-    transition: .35s ease;
+#coffee-menu .menu-card{
+    position:relative;
+    width:100%;
+    padding:28px;
+    background:linear-gradient(145deg,#151515 0%,#090909 70%,#050505 100%);
+    border:1px solid rgba(212,175,55,.42);
+    border-radius:22px;
+    box-shadow:0 16px 40px rgba(0,0,0,.55),inset 0 0 25px rgba(212,175,55,.025);
+    overflow:hidden;
+    transition:.3s ease;
 }
-
-#coffee-menu .menu-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 12%;
-    width: 76%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+#coffee-menu .menu-card::before{
+    content:"";position:absolute;top:0;left:12%;width:76%;height:1px;
+    background:linear-gradient(90deg,transparent,#d4af37,transparent);
 }
-
-#coffee-menu .menu-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(212,175,55,.8);
-    box-shadow:
-        0 22px 50px rgba(0,0,0,.65),
-        0 0 28px rgba(212,175,55,.10);
+#coffee-menu .menu-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(212,175,55,.75);
+    box-shadow:0 22px 50px rgba(0,0,0,.65),0 0 28px rgba(212,175,55,.08);
 }
-
-#coffee-menu .menu-card h3 {
-    position: relative;
-    color: #d4af37;
-    font-size: 28px;
-    font-weight: 800;
-    text-align: center;
-    margin: 0 0 24px;
-    padding: 0 0 15px;
-    border-bottom: 1px solid rgba(212,175,55,.25);
+#coffee-menu .menu-card h3{
+    position:relative;color:#d4af37;font-size:28px;font-weight:900;text-align:center;
+    margin:0 0 24px;padding-bottom:15px;border-bottom:1px solid rgba(212,175,55,.25);
 }
-
-#coffee-menu .product {
-    position: relative;
-    background: linear-gradient(145deg, #111 0%, #080808 100%);
-    border: 1px solid #292929;
-    border-radius: 16px;
-    padding: 18px;
-    margin-bottom: 14px;
-    box-shadow: 0 7px 20px rgba(0,0,0,.22);
-    transition: .3s ease;
+#coffee-menu .product{
+    background:linear-gradient(145deg,#111,#080808);
+    border:1px solid #292929;border-radius:16px;padding:18px;margin-bottom:14px;
+    box-shadow:0 7px 20px rgba(0,0,0,.22);transition:.25s ease;
 }
-
-#coffee-menu .product:last-child {
-    margin-bottom: 0;
+#coffee-menu .product:last-child{margin-bottom:0}
+#coffee-menu .product:hover{border-color:rgba(212,175,55,.55);transform:translateX(-3px)}
+#coffee-menu .product h4{color:#fff;font-size:20px;font-weight:800;margin:0 0 11px}
+#coffee-menu .sub-title{color:#d4af37;font-size:21px;font-weight:900;margin:20px 0 12px;padding-bottom:8px;border-bottom:1px solid rgba(212,175,55,.16)}
+#coffee-menu select{
+    width:100%;height:44px;padding:0 12px;background:#070707;color:#d4af37;
+    border:1px solid rgba(212,175,55,.5);border-radius:10px;outline:none;font-size:15px;cursor:pointer;
 }
-
-#coffee-menu .product:hover {
-    border-color: rgba(212,175,55,.55);
-    transform: translateX(-3px);
+#coffee-menu select:focus{border-color:#d4af37;box-shadow:0 0 12px rgba(212,175,55,.1)}
+#coffee-menu .price{display:block;color:#d4af37;font-size:24px;font-weight:900;margin:12px 0}
+#coffee-menu .add-cart-btn{
+    width:100%;min-height:46px;margin-top:4px;padding:11px 16px;border:0;border-radius:11px;
+    background:linear-gradient(135deg,#d4af37,#f0d477);color:#080808;font-size:16px;font-weight:900;
+    cursor:pointer;transition:.25s ease;
 }
+#coffee-menu .add-cart-btn:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(212,175,55,.22)}
+#coffee-menu .add-cart-btn.added{background:linear-gradient(135deg,#f0d477,#d4af37)}
 
-#coffee-menu .product h4 {
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 10px;
+/* CART */
+.cart-floating{
+    position:fixed;right:22px;bottom:22px;z-index:9998;
+    border:1px solid #f0d477;border-radius:999px;padding:14px 20px;
+    background:linear-gradient(135deg,#d4af37,#f0d477);color:#080808;
+    font-family:inherit;font-size:16px;font-weight:900;cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 20px rgba(212,175,55,.18);
 }
-
-#coffee-menu .price {
-    display: inline-block;
-    color: #d4af37;
-    font-size: 24px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin: 3px 0 14px;
+#cartCount{display:inline-flex;min-width:25px;height:25px;align-items:center;justify-content:center;margin-right:5px;padding:0 6px;border-radius:50%;background:#080808;color:#f0d477;font-size:13px}
+.cart-overlay{
+    position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;
+    padding:20px;background:rgba(0,0,0,.78);backdrop-filter:blur(5px);
 }
-
-#coffee-menu .sub-title {
-    color: #d4af37;
-    font-size: 21px;
-    font-weight: 800;
-    margin: 22px 0 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(212,175,55,.16);
+.cart-overlay.open{display:flex}
+.cart-content{
+    position:relative;width:min(620px,100%);max-height:85vh;overflow:auto;
+    background:linear-gradient(145deg,#151515,#080808);border:1px solid rgba(212,175,55,.55);
+    border-radius:22px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.7);text-align:right;
 }
+.cart-content h2{color:#d4af37;text-align:center;margin:0 0 22px;font-size:28px}
+.close-cart{position:absolute;top:12px;left:14px;width:38px;height:38px;border:0;border-radius:50%;background:#222;color:#fff;font-size:25px;cursor:pointer}
+.cart-items{display:flex;flex-direction:column;gap:12px}
+.empty-cart{text-align:center;color:#ccc;padding:35px 10px;font-size:18px}
+.cart-item{display:flex;align-items:center;gap:12px;padding:15px;background:#101010;border:1px solid #292929;border-radius:14px}
+.cart-item-info{flex:1}.cart-item-info h3{color:#fff;font-size:17px;margin:0 0 5px}.cart-item-info p{color:#aaa;margin:0 0 5px;font-size:14px}.cart-item-info strong{color:#d4af37}
+.quantity-box{display:flex;align-items:center;gap:8px}.quantity-box button{width:32px;height:32px;border:1px solid #d4af37;border-radius:8px;background:#080808;color:#d4af37;font-size:18px;cursor:pointer}.quantity-box span{min-width:22px;text-align:center;color:#fff;font-weight:800}
+.remove-item{width:35px;height:35px;border:0;border-radius:8px;background:#241010;color:#ffb1b1;cursor:pointer}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:18px;border-top:1px solid #333;color:#fff;font-size:18px}.cart-total strong{color:#d4af37;font-size:24px}
+.checkout-btn{width:100%;margin-top:18px;padding:13px;border:0;border-radius:12px;background:linear-gradient(135deg,#d4af37,#f0d477);color:#080808;font-family:inherit;font-size:17px;font-weight:900;cursor:pointer}
 
-#coffee-menu select {
-    width: 100%;
-    height: 44px;
-    padding: 0 12px;
-    background: #070707;
-    color: #d4af37;
-    border: 1px solid rgba(212,175,55,.5);
-    border-radius: 10px;
-    outline: none;
-    font-size: 15px;
-    cursor: pointer;
-    transition: .3s ease;
-}
-
-#coffee-menu select:hover,
-#coffee-menu select:focus {
-    border-color: #d4af37;
-    box-shadow: 0 0 12px rgba(212,175,55,.10);
-}
-
-#coffee-menu button {
-    width: 100%;
-    min-height: 45px;
-    margin-top: 11px;
-    padding: 11px 16px;
-    border: 0;
-    border-radius: 11px;
-    background: linear-gradient(135deg, #d4af37, #f0d477);
-    color: #080808;
-    font-size: 16px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: .3s ease;
-}
-
-#coffee-menu button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 9px 22px rgba(212,175,55,.22);
-}
-
-#coffee-menu del {
-    color: #777;
-}
-
-@media (max-width: 900px) {
-    #coffee-menu {
-        grid-template-columns: 1fr;
-        max-width: 700px;
-    }
-}
-
-@media (max-width: 600px) {
-    .menu-section {
-        padding: 60px 14px;
-    }
-
-    .menu-section h2 {
-        font-size: 32px;
-    }
-
-    .menu-subtitle {
-        font-size: 16px;
-        margin-bottom: 30px;
-    }
-
-    #coffee-menu {
-        gap: 18px;
-    }
-
-    #coffee-menu .menu-card {
-        padding: 20px 15px;
-        border-radius: 18px;
-    }
-
-    #coffee-menu .menu-card h3 {
-        font-size: 23px;
-    }
-
-    #coffee-menu .product {
-        padding: 15px;
-    }
-
-    #coffee-menu .product h4 {
-        font-size: 18px;
-    }
-
-    #coffee-menu .price {
-        font-size: 22px;
-    }
-/* FIX MENU RED BACKGROUND */
-
-#coffee-menu {
-    background: #050505 !important;
-}
-
-#coffee-menu .menu-card {
-    background: linear-gradient(145deg, #151515 0%, #090909 65%, #050505 100%) !important;
-}
-/* ===== FINAL COFFEE MENU FIX ===== */
-
-#coffee-menu {
-    background: #000 !important;
-    background-color: #000 !important;
-}
-
-#coffee-menu .menu-card {
-    background: #000 !important;
-    background-color: #000 !important;
-}
-
-.menu-section {
-    background: #000 !important;
-    background-color: #000 !important;
+@media(max-width:900px){#coffee-menu{grid-template-columns:1fr;max-width:700px}}
+@media(max-width:600px){
+    .menu-section{padding:60px 14px}.menu-title{font-size:32px}.menu-subtitle{font-size:15px;margin-bottom:30px}
+    #coffee-menu{gap:18px}.menu-card{padding:20px 15px}.cart-floating{right:14px;bottom:14px;padding:12px 16px}
+    .cart-content{padding:24px 15px}.cart-item{align-items:flex-start;flex-wrap:wrap}.quantity-box{margin-right:auto}
 }

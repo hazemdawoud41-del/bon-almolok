@@ -1,1023 +1,261 @@
-// =========================
-// BON EL MOLOUK - SCRIPT.JS
-// =========================
-
-
-// =========================
-// LOADER
-// =========================
-
-window.addEventListener("load", () => {
-
-    const loader = document.getElementById("loader");
-
-    if (loader) {
-
-        setTimeout(() => {
-
-            loader.classList.add("hide");
-
-        }, 1200);
-
-    }
-
-});
-
-
-// =========================
-// SCROLL ANIMATION
-// =========================
-
-const hiddenElements = document.querySelectorAll(
-    ".features, .feature-card, .journey, .journey-item, .products, .card, .gallery, .gallery-box, .testimonials, .testimonial-card, .about, .location, .contact"
-);
-
-if ("IntersectionObserver" in window) {
-
-    const observer = new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("show");
-
-            }
-
-        });
-
-    }, {
-        threshold: 0.15
-    });
-
-
-    hiddenElements.forEach(el => {
-
-        el.classList.add("hidden");
-
-        observer.observe(el);
-
-    });
-
-}
-
-
-// =========================
-// COUNTER
-// =========================
-
-const counters = document.querySelectorAll(".counter");
-
-if ("IntersectionObserver" in window) {
-
-    const counterObserver = new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (!entry.isIntersecting) return;
-
-            const counter = entry.target;
-
-            const target = Number(counter.dataset.target);
-
-            let count = 0;
-
-            const update = () => {
-
-                const speed = target / 80;
-
-                if (count < target) {
-
-                    count += speed;
-
-                    counter.innerText =
-                        Math.ceil(count) + "+";
-
-                    setTimeout(update, 25);
-
-                } else {
-
-                    counter.innerText =
-                        target + "+";
-
-                }
-
-            };
-
-            update();
-
-            counterObserver.unobserve(counter);
-
-        });
-
-    });
-
-
-    counters.forEach(counter => {
-
-        counterObserver.observe(counter);
-
-    });
-
-}
-
-
-// =========================
-// BACK TO TOP
-// =========================
-
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll", () => {
-
-    if (!topBtn) return;
-
-    if (window.scrollY > 500) {
-
-        topBtn.style.display = "block";
-
-    } else {
-
-        topBtn.style.display = "none";
-
-    }
-
-});
-
-
-if (topBtn) {
-
-    topBtn.onclick = () => {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    };
-
-}
-
-
-// =========================
-// GALLERY LIGHTBOX
-// =========================
-
-const galleryImages =
-    document.querySelectorAll(".gallery-box img");
-
-const lightbox =
-    document.getElementById("lightbox");
-
-const lightboxImg =
-    document.getElementById("lightboxImg");
-
-const closeLightbox =
-    document.getElementById("closeLightbox");
-
-
-if (galleryImages.length && lightbox && lightboxImg) {
-
-    galleryImages.forEach(img => {
-
-        img.addEventListener("click", () => {
-
-            lightbox.style.display = "flex";
-
-            lightboxImg.src = img.src;
-
-            lightboxImg.alt = img.alt;
-
-        });
-
-    });
-
-}
-
-
-if (closeLightbox) {
-
-    closeLightbox.addEventListener("click", () => {
-
-        lightbox.style.display = "none";
-
-    });
-
-}
-
-
-if (lightbox) {
-
-    lightbox.addEventListener("click", (e) => {
-
-        if (e.target === lightbox) {
-
-            lightbox.style.display = "none";
-
+// ==========================================
+// BEN EL MOLOUK - CLEAN MAIN SCRIPT
+// ==========================================
+
+(function () {
+    "use strict";
+
+    // ---------- Loader ----------
+    window.addEventListener("load", function () {
+        const loader = document.getElementById("loader");
+        if (loader) {
+            setTimeout(() => loader.classList.add("hide"), 900);
         }
-
     });
 
-}
-
-
-document.addEventListener("keydown", (e) => {
-
-    if (
-        e.key === "Escape" &&
-        lightbox
-    ) {
-
-        lightbox.style.display = "none";
-
-    }
-
-});
-
-
-// =========================
-// HEADER SHADOW
-// =========================
-
-const header =
-    document.querySelector("header");
-
-
-window.addEventListener("scroll", () => {
-
-    if (!header) return;
-
-    if (window.scrollY > 60) {
-
-        header.style.boxShadow =
-            "0 10px 30px rgba(0,0,0,.35)";
-
-    } else {
-
-        header.style.boxShadow = "none";
-
-    }
-
-});
-
-
-// =========================
-// ACTIVE MENU
-// =========================
-
-const sections =
-    document.querySelectorAll("section");
-
-const navLinks =
-    document.querySelectorAll("nav a");
-
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const top =
-            section.offsetTop - 120;
-
-        const height =
-            section.offsetHeight;
-
-        if (
-            window.scrollY >= top &&
-            window.scrollY < top + height
-        ) {
-
-            current = section.id;
-
-        }
-
-    });
-
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href") ===
-            "#" + current
-        ) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-
-
-// =========================
-// CART SYSTEM
-// =========================
-
-let cart = [];
-
-
-// =========================
-// CHANGE PRICE
-// =========================
-
-function changePrice(select, kiloPrice) {
-
-    const weight =
-        parseFloat(select.value);
-
-    const finalPrice =
-        kiloPrice * weight;
-
-    const priceBox =
-        select.parentElement.querySelector(".price");
-
-    if (priceBox) {
-
-        priceBox.innerHTML =
-            Math.round(finalPrice) + " ج";
-
-    }
-
-}
-// ================================
-// CART DISPLAY
-// ================================
-
-function showCart() {
-
-    let cartBox = document.getElementById("cartBox");
-
-    if (!cartBox) {
-        cartBox = document.createElement("div");
-        cartBox.id = "cartBox";
-        document.body.appendChild(cartBox);
-    }
-
-    if (cart.length === 0) {
-
-        cartBox.innerHTML = `
-            <div class="cart-content">
-
-                <button class="close-cart" onclick="closeCart()">×</button>
-
-                <h2>🛒 سلة الطلبات</h2>
-
-                <p class="empty-cart">
-                    السلة فارغة ☕
-                </p>
-
-            </div>
-        `;
-
-        cartBox.style.display = "flex";
-        return;
-    }
-
-    let total = 0;
-    let itemsHTML = "";
-
-    cart.forEach((item, index) => {
-
-        let itemTotal = item.price * item.quantity;
-
-        total += itemTotal;
-
-        itemsHTML += `
-            <div class="cart-item">
-
-                <div class="cart-item-info">
-
-                    <h3>${item.name}</h3>
-
-                    <p>${item.weight}</p>
-
-                    <strong>${item.price} ج</strong>
-
-                </div>
-
-                <div class="quantity-box">
-
-                    <button onclick="changeQuantity(${index}, 1)">
-                        +
-                    </button>
-
-                    <span>${item.quantity}</span>
-
-                    <button onclick="changeQuantity(${index}, -1)">
-                        −
-                    </button>
-
-                </div>
-
-                <button
-                    class="remove-item"
-                    onclick="removeFromCart(${index})">
-
-                    🗑️
-
-                </button>
-
-            </div>
-        `;
-    });
-
-    cartBox.innerHTML = `
-
-        <div class="cart-content">
-
-            <button
-                class="close-cart"
-                onclick="closeCart()">
-
-                ×
-
-            </button>
-
-            <h2>🛒 سلة الطلبات</h2>
-
-            <div class="cart-items">
-                ${itemsHTML}
-            </div>
-
-            <div class="cart-total">
-
-                <span>الإجمالي</span>
-
-                <strong>${total} ج</strong>
-
-            </div>
-
-            <button
-                class="checkout-btn"
-                onclick="checkoutWhatsApp()">
-
-                ☕ إتمام الطلب عبر واتساب
-
-            </button>
-
-        </div>
-    `;
-
-    cartBox.style.display = "flex";
-}
-// ================================
-// BON EL MOLOUK - CART SYSTEM
-// الجزء الثالث
-// ================================
-
-let cart = [];
-
-// ================================
-// حساب السعر حسب الوزن
-// ================================
-
-function changePrice(select, kiloPrice) {
-
-    let weight = parseFloat(select.value);
-
-    let finalPrice = kiloPrice * weight;
-
-    let priceBox = select.parentElement.querySelector(".price");
-
-    if (priceBox) {
-        priceBox.innerHTML = Math.round(finalPrice) + " ج";
-    }
-}
-
-
-// ================================
-// إضافة المنتج للسلة
-// ================================
-
-function addToCart(productName, kiloPrice, select) {
-
-    let weight = parseFloat(select.value);
-
-    let weightText = "";
-
-    if (weight === 1) {
-        weightText = "1 كيلو";
-    }
-    else if (weight === 0.5) {
-        weightText = "500 جم";
-    }
-    else if (weight === 0.25) {
-        weightText = "250 جم";
-    }
-    else if (weight === 0.125) {
-        weightText = "125 جم";
-    }
-
-    let price = Math.round(kiloPrice * weight);
-
-    cart.push({
-        name: productName,
-        weight: weightText,
-        price: price,
-        quantity: 1
-    });
-
-    showCart();
-
-    alert(
-        "تم إضافة " +
-        productName +
-        " - " +
-        weightText +
-        " للسلة ☕👑"
+    // ---------- Scroll animations ----------
+    const hiddenElements = document.querySelectorAll(
+        ".features, .feature-card, .journey, .journey-item, .products, .card, .gallery, .gallery-box, .testimonials, .testimonial-card, .about, .location, .contact"
     );
-}
 
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add("show");
+            });
+        }, { threshold: 0.12 });
 
-// ================================
-// فتح السلة
-// ================================
-
-function openCart() {
-
-    showCart();
-
-}
-// ================================
-// CART DISPLAY
-// ================================
-
-function showCart() {
-
-    let cartBox = document.getElementById("cartBox");
-
-    if (!cartBox) {
-        cartBox = document.createElement("div");
-        cartBox.id = "cartBox";
-        document.body.appendChild(cartBox);
+        hiddenElements.forEach((element) => {
+            element.classList.add("hidden");
+            observer.observe(element);
+        });
     }
 
-    let total = 0;
-
-    if (cart.length === 0) {
-
-        cartBox.innerHTML = `
-            <div class="cart-content">
-
-                <button class="close-cart" onclick="closeCart()">
-                    ×
-                </button>
-
-                <h2>🛒 سلة الطلبات</h2>
-
-                <div class="empty-cart">
-                    السلة فارغة ☕
-                </div>
-
-            </div>
-        `;
-
-        cartBox.style.display = "flex";
-
-        return;
+    // ---------- Counters ----------
+    const counters = document.querySelectorAll(".counter");
+    if ("IntersectionObserver" in window) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const counter = entry.target;
+                const target = Number(counter.dataset.target || 0);
+                let value = 0;
+                const step = Math.max(1, target / 60);
+                const tick = () => {
+                    value += step;
+                    if (value < target) {
+                        counter.textContent = Math.ceil(value) + "+";
+                        requestAnimationFrame(tick);
+                    } else {
+                        counter.textContent = target + "+";
+                    }
+                };
+                tick();
+                counterObserver.unobserve(counter);
+            });
+        }, { threshold: 0.5 });
+        counters.forEach((counter) => counterObserver.observe(counter));
     }
 
-    let itemsHTML = "";
+    // ---------- Back to top ----------
+    const topBtn = document.getElementById("topBtn");
+    window.addEventListener("scroll", () => {
+        if (!topBtn) return;
+        topBtn.style.display = window.scrollY > 500 ? "block" : "none";
+    });
+    if (topBtn) {
+        topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    }
 
-    cart.forEach((item, index) => {
-
-        let itemTotal = item.price * item.quantity;
-
-        total += itemTotal;
-
-        itemsHTML += `
-            <div class="cart-item">
-
-                <div class="cart-item-info">
-
-                    <h3>${item.name}</h3>
-
-                    <p>
-                        الوزن: ${item.weight}
-                    </p>
-
-                    <strong>
-                        ${item.price} ج
-                    </strong>
-
-                </div>
-
-                <div class="quantity-box">
-
-                    <button
-                        onclick="changeQuantity(${index}, 1)">
-                        +
-                    </button>
-
-                    <span>
-                        ${item.quantity}
-                    </span>
-
-                    <button
-                        onclick="changeQuantity(${index}, -1)">
-                        −
-                    </button>
-
-                </div>
-
-                <button
-                    class="remove-item"
-                    onclick="removeFromCart(${index})">
-
-                    🗑️
-
-                </button>
-
-            </div>
-        `;
+    // ---------- Gallery lightbox ----------
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeLightbox = document.getElementById("closeLightbox");
+    document.querySelectorAll(".gallery-box img").forEach((img) => {
+        img.addEventListener("click", () => {
+            if (!lightbox || !lightboxImg) return;
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || "بن الملوك";
+            lightbox.style.display = "flex";
+        });
+    });
+    if (closeLightbox) closeLightbox.addEventListener("click", () => lightbox && (lightbox.style.display = "none"));
+    if (lightbox) {
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) lightbox.style.display = "none";
+        });
+    }
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox) lightbox.style.display = "none";
     });
 
-    cartBox.innerHTML = `
+    // ---------- Header shadow ----------
+    const header = document.querySelector("header");
+    window.addEventListener("scroll", () => {
+        if (header) header.classList.toggle("scrolled", window.scrollY > 20);
+    });
 
-        <div class="cart-content">
+    // ==========================================
+    // CART SYSTEM
+    // ==========================================
 
-            <button
-                class="close-cart"
-                onclick="closeCart()">
+    let cart = [];
+    const PHONE = "201020808359";
 
-                ×
-
-            </button>
-
-            <h2>🛒 سلة الطلبات</h2>
-
-            <div class="cart-items">
-
-                ${itemsHTML}
-
-            </div>
-
-            <div class="cart-total">
-
-                <span>
-                    الإجمالي
-                </span>
-
-                <strong>
-                    ${total} ج
-                </strong>
-
-            </div>
-
-            <button
-                class="checkout-btn"
-                onclick="checkoutWhatsApp()">
-
-                ☕ إتمام الطلب عبر واتساب
-
-            </button>
-
-        </div>
-
-    `;
-
-    cartBox.style.display = "flex";
-}
-
-
-// ================================
-// تغيير الكمية
-// ================================
-
-function changeQuantity(index, amount) {
-
-    if (!cart[index]) return;
-
-    cart[index].quantity += amount;
-
-    if (cart[index].quantity <= 0) {
-
-        cart.splice(index, 1);
-
-    }
-
-    showCart();
-}
-
-
-// ================================
-// حذف منتج
-// ================================
-
-function removeFromCart(index) {
-
-    if (!cart[index]) return;
-
-    cart.splice(index, 1);
-
-    showCart();
-}
-
-
-// ================================
-// إغلاق السلة
-// ================================
-
-function closeCart() {
-
+    const cartButton = document.getElementById("cartButton");
     const cartBox = document.getElementById("cartBox");
+    const cartCount = document.getElementById("cartCount");
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
 
-    if (cartBox) {
-
-        cartBox.style.display = "none";
-
-    }
-}
-// ================================
-// CART DISPLAY
-// ================================
-
-function showCart() {
-
-    let cartBox = document.getElementById("cartBox");
-
-    if (!cartBox) {
-        cartBox = document.createElement("div");
-        cartBox.id = "cartBox";
-        document.body.appendChild(cartBox);
+    function weightLabel(value) {
+        const weight = Number(value);
+        if (weight === 1) return "1 كيلو";
+        if (weight === 0.5) return "500 جم";
+        if (weight === 0.25) return "250 جم";
+        return "125 جم";
     }
 
-    if (cart.length === 0) {
-
-        cartBox.innerHTML = `
-            <div class="cart-content">
-
-                <button class="close-cart" onclick="closeCart()">×</button>
-
-                <h2>🛒 سلة الطلبات</h2>
-
-                <div class="empty-cart">
-                    السلة فارغة ☕
-                </div>
-
-            </div>
-        `;
-
-        cartBox.style.display = "flex";
-
-        return;
+    function updateCartButton() {
+        if (!cartCount) return;
+        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
     }
 
-    let total = 0;
+    function renderCart() {
+        if (!cartItems || !cartTotal) return;
 
-    let itemsHTML = "";
+        if (cart.length === 0) {
+            cartItems.innerHTML = '<div class="empty-cart">🛒 السلة فارغة</div>';
+            cartTotal.textContent = "0 ج";
+            return;
+        }
 
-    cart.forEach((item, index) => {
+        let total = 0;
+        cartItems.innerHTML = cart.map((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            return `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <h3>${escapeHtml(item.name)}</h3>
+                        <p>الوزن: ${escapeHtml(item.weight)}</p>
+                        <strong>${item.price} ج</strong>
+                    </div>
+                    <div class="quantity-box">
+                        <button type="button" data-action="plus" data-index="${index}">+</button>
+                        <span>${item.quantity}</span>
+                        <button type="button" data-action="minus" data-index="${index}">−</button>
+                    </div>
+                    <button type="button" class="remove-item" data-action="remove" data-index="${index}" aria-label="حذف المنتج">🗑️</button>
+                </div>`;
+        }).join("");
 
-        let itemTotal = item.price * item.quantity;
+        cartTotal.textContent = total + " ج";
+    }
 
-        total += itemTotal;
+    function escapeHtml(text) {
+        return String(text).replace(/[&<>'"]/g, (char) => ({
+            "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+        }[char]));
+    }
 
-        itemsHTML += `
-            <div class="cart-item">
+    function openCart() {
+        if (!cartBox) return;
+        renderCart();
+        cartBox.classList.add("open");
+        cartBox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
 
-                <div class="cart-item-info">
+    function closeCart() {
+        if (!cartBox) return;
+        cartBox.classList.remove("open");
+        cartBox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
 
-                    <h3>${item.name}</h3>
+    window.openCart = openCart;
+    window.closeCart = closeCart;
 
-                    <p>
-                        الوزن: ${item.weight}
-                    </p>
+    if (cartButton) cartButton.addEventListener("click", openCart);
 
-                    <strong>
-                        ${item.price} ج للواحد
-                    </strong>
+    // Cart quantity controls using event delegation.
+    if (cartItems) {
+        cartItems.addEventListener("click", (event) => {
+            const button = event.target.closest("button[data-action]");
+            if (!button) return;
+            const index = Number(button.dataset.index);
+            const action = button.dataset.action;
+            if (!cart[index]) return;
 
-                    <p>
-                        الإجمالي: ${itemTotal} ج
-                    </p>
+            if (action === "plus") cart[index].quantity += 1;
+            if (action === "minus") cart[index].quantity -= 1;
+            if (action === "remove" || cart[index].quantity <= 0) cart.splice(index, 1);
 
-                </div>
+            updateCartButton();
+            renderCart();
+        });
+    }
 
+    // Add-to-cart buttons.
+    document.querySelectorAll(".add-cart-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+            const product = button.closest(".product");
+            if (!product) return;
 
-                <div class="quantity-box">
+            const name = button.dataset.name;
+            const kiloPrice = Number(button.dataset.price);
+            const select = product.querySelector(".weight-select");
+            const weight = Number(select ? select.value : 1);
+            const weightText = weightLabel(weight);
+            const price = Math.round(kiloPrice * weight);
 
-                    <button
-                        onclick="changeQuantity(${index}, 1)">
-                        +
-                    </button>
+            const existing = cart.find((item) => item.name === name && item.weight === weightText);
+            if (existing) existing.quantity += 1;
+            else cart.push({ name, weight: weightText, price, quantity: 1 });
 
-                    <span>
-                        ${item.quantity}
-                    </span>
-
-                    <button
-                        onclick="changeQuantity(${index}, -1)">
-                        −
-                    </button>
-
-                </div>
-
-
-                <button
-                    class="remove-item"
-                    onclick="removeFromCart(${index})">
-
-                    🗑️
-
-                </button>
-
-            </div>
-        `;
+            updateCartButton();
+            button.classList.add("added");
+            const oldText = button.textContent;
+            button.textContent = "✓ تمت الإضافة للسلة";
+            setTimeout(() => {
+                button.classList.remove("added");
+                button.textContent = oldText;
+            }, 900);
+        });
     });
 
-
-    cartBox.innerHTML = `
-
-        <div class="cart-content">
-
-            <button
-                class="close-cart"
-                onclick="closeCart()">
-
-                ×
-
-            </button>
-
-
-            <h2>
-                🛒 سلة الطلبات
-            </h2>
-
-
-            <div class="cart-items">
-
-                ${itemsHTML}
-
-            </div>
-
-
-            <div class="cart-total">
-
-                <span>
-                    الإجمالي
-                </span>
-
-                <strong>
-                    ${total} ج
-                </strong>
-
-            </div>
-
-
-            <button
-                class="checkout-btn"
-                onclick="checkoutWhatsApp()">
-
-                ☕ إتمام الطلب عبر واتساب
-
-            </button>
-
-        </div>
-
-    `;
-
-
-    cartBox.style.display = "flex";
-}
-// ================================
-// BON EL MOLOUK - CART DISPLAY
-// ================================
-
-function showCart() {
-
-    let cartBox = document.getElementById("cartBox");
-
-    if (!cartBox) {
-        cartBox = document.createElement("div");
-        cartBox.id = "cartBox";
-        document.body.appendChild(cartBox);
-    }
-
-    let total = 0;
-    let itemsHTML = "";
-
-    if (cart.length === 0) {
-
-        cartBox.innerHTML = `
-            <div class="cart-content">
-
-                <button class="close-cart" onclick="closeCart()">×</button>
-
-                <h2>🛒 سلة الطلبات</h2>
-
-                <p class="empty-cart">
-                    السلة فارغة ☕
-                </p>
-
-            </div>
-        `;
-
-        cartBox.style.display = "flex";
-        return;
-    }
-
-    cart.forEach((item, index) => {
-
-        let itemTotal = item.price * item.quantity;
-
-        total += itemTotal;
-
-        itemsHTML += `
-            <div class="cart-item">
-
-                <div class="cart-item-info">
-
-                    <h3>${item.name}</h3>
-
-                    <p>
-                        الوزن: ${item.weight}
-                    </p>
-
-                    <strong>
-                        ${item.price} ج
-                    </strong>
-
-                </div>
-
-                <div class="quantity-box">
-
-                    <button onclick="changeQuantity(${index}, 1)">
-                        +
-                    </button>
-
-                    <span>
-                        ${item.quantity}
-                    </span>
-
-                    <button onclick="changeQuantity(${index}, -1)">
-                        −
-                    </button>
-
-                </div>
-
-                <button
-                    class="remove-item"
-                    onclick="removeFromCart(${index})">
-
-                    🗑️
-
-                </button>
-
-            </div>
-        `;
+    // Update displayed kilo-based price when weight changes.
+    document.querySelectorAll(".weight-select").forEach((select) => {
+        select.addEventListener("change", () => {
+            const product = select.closest(".product");
+            const priceBox = product && product.querySelector(".price");
+            const button = product && product.querySelector(".add-cart-btn");
+            if (!priceBox || !button) return;
+            const price = Math.round(Number(button.dataset.price) * Number(select.value));
+            priceBox.textContent = price + " ج";
+        });
     });
 
-    cartBox.innerHTML = `
+    function checkoutWhatsApp() {
+        if (cart.length === 0) {
+            alert("السلة فارغة 🛒");
+            return;
+        }
 
-        <div class="cart-content">
+        let total = 0;
+        const lines = ["السلام عليكم 👑☕", "أريد عمل طلب:", ""];
+        cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            lines.push(`${index + 1}- ${item.name} - ${item.weight} × ${item.quantity} = ${itemTotal} ج`);
+        });
+        lines.push("", "--------------------", `الإجمالي: ${total} ج`);
 
-            <button
-                class="close-cart"
-                onclick="closeCart()">
+        const url = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(lines.join("\n"));
+        window.open(url, "_blank", "noopener,noreferrer");
+    }
 
-                ×
-
-            </button>
-
-            <h2>
-                🛒 سلة الطلبات
-            </h2>
-
-            <div class="cart-items">
-
-                ${itemsHTML}
-
-            </div>
-
-            <div class="cart-total">
-
-                <span>
-                    الإجمالي
-                </span>
-
-                <strong>
-                    ${total} ج
-                </strong>
-
-            </div>
-
-            <button
-                class="checkout-btn"
-                onclick="checkoutWhatsApp()">
-
-                ☕ إتمام الطلب عبر واتساب
-
-            </button>
-
-        </div>
-
-    `;
-
-    cartBox.style.display = "flex";
-}
+    window.checkoutWhatsApp = checkoutWhatsApp;
+    updateCartButton();
+})();
