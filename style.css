@@ -1825,3 +1825,76 @@ section h2 {
    END
 =================================== */
 ```
+/* ==========================================
+   FATHER SECTION - BEN EL MOLOUK
+========================================== */
+
+.father-box {
+    max-width: 900px;
+    margin: 35px auto;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(145deg, #111111, #050505);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+}
+
+.father-box img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #d4af37;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+}
+
+.father-text {
+    flex: 1;
+    text-align: right;
+}
+
+.father-text h3 {
+    margin: 0 0 15px;
+    color: #d4af37;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.father-text p {
+    margin: 0;
+    color: #eeeeee;
+    font-size: 18px;
+    line-height: 2;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .father-box {
+        margin: 25px 15px;
+        padding: 20px 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .father-box img {
+        width: 190px;
+        height: 190px;
+    }
+
+    .father-text {
+        text-align: center;
+    }
+
+    .father-text h3 {
+        font-size: 25px;
+    }
+
+    .father-text p {
+        font-size: 16px;
+    }
+}
