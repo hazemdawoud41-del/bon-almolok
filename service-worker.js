@@ -1,4 +1,4 @@
-const cacheName = "bon-almolok-v2";
+const cacheName = "bon-almolok-v3";
 
 const filesToCache = [
     "./",
@@ -9,23 +9,25 @@ const filesToCache = [
     "./manifest.json"
 ];
 
-self.addEventListener("install", event => {
+// تثبيت النسخة الجديدة
+self.addEventListener("install", (event) => {
+    self.skipWaiting();
+
     event.waitUntil(
-        caches.open(cacheName).then(cache => {
+        caches.open(cacheName).then((cache) => {
             return cache.addAll(filesToCache);
         })
     );
-
-    self.skipWaiting();
 });
 
-self.addEventListener("activate", event => {
+// حذف الـ Cache القديم
+self.addEventListener("activate", (event) => {
     event.waitUntil(
-        caches.keys().then(keys => {
+        caches.keys().then((cacheNames) => {
             return Promise.all(
-                keys
-                    .filter(key => key !== cacheName)
-                    .map(key => caches.delete(key))
+                cacheNames
+                    .filter((name) => name !== cacheName)
+                    .map((name) => caches.delete(name))
             );
         })
     );
@@ -33,9 +35,10 @@ self.addEventListener("activate", event => {
     self.clients.claim();
 });
 
-self.addEventListener("fetch", event => {
+// تحميل الملفات
+self.addEventListener("fetch", (event) => {
     event.respondWith(
-        caches.match(event.request).then(response => {
+        caches.match(event.request).then((response) => {
             return response || fetch(event.request);
         })
     );
