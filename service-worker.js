@@ -1,6 +1,6 @@
-const cacheName = "bon-almolok-v3";
+const CACHE_NAME = "bon-almolok-v4";
 
-const filesToCache = [
+const FILES_TO_CACHE = [
     "./",
     "./index.html",
     "./style.css",
@@ -9,37 +9,41 @@ const filesToCache = [
     "./manifest.json"
 ];
 
-// تثبيت النسخة الجديدة
+// Install
 self.addEventListener("install", (event) => {
     self.skipWaiting();
 
     event.waitUntil(
-        caches.open(cacheName).then((cache) => {
-            return cache.addAll(filesToCache);
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.addAll(FILES_TO_CACHE);
         })
     );
 });
 
-// حذف الـ Cache القديم
+// Activate
 self.addEventListener("activate", (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames
-                    .filter((name) => name !== cacheName)
+                    .filter((name) => name !== CACHE_NAME)
                     .map((name) => caches.delete(name))
             );
+        }).then(() => {
+            return self.clients.claim();
         })
     );
-
-    self.clients.claim();
 });
 
-// تحميل الملفات
+// Fetch
 self.addEventListener("fetch", (event) => {
     event.respondWith(
-        caches.match(event.request).then((response) => {
-            return response || fetch(event.request);
-        })
+        fetch(event.request)
+            .then((response) => {
+                return response;
+            })
+            .catch(() => {
+                return caches.match(event.request);
+            })
     );
 });
