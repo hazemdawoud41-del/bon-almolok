@@ -32,6 +32,17 @@
 .journey-story-inner{max-width:1180px;margin:auto;position:relative;z-index:1}.journey-story-heading{text-align:center;max-width:800px;margin:0 auto 65px}.journey-story-kicker{display:inline-block;color:#d4af37;font-weight:800;letter-spacing:2px;margin-bottom:12px}.journey-story-heading h2{margin:0;color:#f2d06b;font-size:clamp(32px,5vw,58px);font-weight:900;text-shadow:0 0 25px rgba(212,175,55,.18)}.journey-story-line{width:170px;height:1px;margin:22px auto;background:linear-gradient(90deg,transparent,#d4af37,transparent)}.journey-story-heading p{color:#d8d8d8;font-size:17px;line-height:2;margin:0}.journey-timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;position:relative}.journey-timeline:before{content:"";position:absolute;top:38px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,#d4af37,transparent);opacity:.45}.journey-story-item{position:relative;text-align:center}.journey-year{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;border:1px solid rgba(212,175,55,.5);border-radius:999px;background:#080808;color:#f2d06b;font-weight:900;box-shadow:0 0 25px rgba(212,175,55,.08)}.journey-story-card{margin-top:28px;padding:34px 24px;min-height:275px;border:1px solid rgba(212,175,55,.16);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(212,175,55,.025));box-shadow:0 20px 55px rgba(0,0,0,.3),inset 0 0 35px rgba(212,175,55,.018);transition:.35s}.journey-story-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.55);box-shadow:0 25px 60px rgba(0,0,0,.45),0 0 30px rgba(212,175,55,.08)}.journey-number{display:block;color:rgba(212,175,55,.45);font-size:13px;font-weight:900;letter-spacing:2px}.journey-story-icon{font-size:38px;margin:12px 0}.journey-story-card h3{color:#f2d06b;font-size:25px;margin:0 0 13px}.journey-story-card p{color:#ddd;font-size:16px;line-height:2;margin:0}.journey-story-end{width:max-content;max-width:100%;margin:55px auto 0;padding:16px 30px;border:1px solid rgba(212,175,55,.35);border-radius:999px;color:#f2d06b;font-size:22px;font-weight:900;box-shadow:0 0 30px rgba(212,175,55,.07)}@media(max-width:800px){.journey-story{padding:75px 15px}.journey-timeline{grid-template-columns:1fr;gap:20px}.journey-timeline:before{top:0;bottom:0;left:50%;right:auto;width:1px;height:auto}.journey-year{background:#080808}.journey-story-card{min-height:auto}.journey-story-end{font-size:18px;text-align:center}}
 </style>
 
+
+<style>
+.coffee-finder{position:relative;overflow:hidden;padding:100px 20px;background:radial-gradient(circle at 50% 15%,rgba(212,175,55,.12),transparent 35%),#050505;border-top:1px solid rgba(212,175,55,.12)}
+.coffee-finder-inner{max-width:980px;margin:auto}.coffee-finder-heading{text-align:center;margin-bottom:35px}.coffee-finder-heading>span{color:#d4af37;font-weight:900}.coffee-finder-heading h2{margin:10px 0;color:#f2d06b;font-size:clamp(34px,5vw,58px)}.coffee-finder-heading p{max-width:680px;margin:auto;color:#ddd;line-height:2;font-size:16px}
+.finder-progress{height:4px;background:#1a1a1a;border-radius:20px;overflow:hidden;max-width:700px;margin:0 auto 45px}.finder-progress-bar{height:100%;width:33.333%;background:linear-gradient(90deg,#b8860b,#f2d06b);transition:.35s}
+.finder-question{display:none;text-align:center;animation:finderIn .4s ease}.finder-question.active{display:block}.finder-question small{color:#b9b9b9}.finder-question h3{color:#fff;font-size:30px;margin:10px 0 28px}
+.finder-options{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.finder-option{min-height:130px;padding:25px 18px;border:1px solid rgba(212,175,55,.22);border-radius:20px;background:linear-gradient(145deg,#101010,#080808);color:#fff;cursor:pointer;transition:.3s;font-family:inherit}.finder-option:hover{transform:translateY(-6px);border-color:#d4af37;box-shadow:0 15px 40px rgba(0,0,0,.4),0 0 25px rgba(212,175,55,.08)}.finder-option strong{display:block;color:#f2d06b;font-size:21px;margin-bottom:10px}.finder-option span{color:#ccc;font-size:14px;line-height:1.8}
+.finder-result{display:none;text-align:center;padding:45px 25px;margin-top:25px;border:1px solid rgba(212,175,55,.4);border-radius:28px;background:linear-gradient(145deg,rgba(212,175,55,.07),rgba(0,0,0,.35));box-shadow:0 25px 70px rgba(0,0,0,.4)}.finder-result.show{display:block;animation:finderIn .5s ease}.finder-result-icon{font-size:48px}.finder-result-label{color:#d4af37;font-weight:800}.finder-result h3{color:#f2d06b;font-size:38px;margin:8px 0}.finder-result p{color:#ddd;line-height:2}.finder-result a{display:inline-block;margin:15px 8px;padding:13px 28px;border-radius:12px;background:#d4af37;color:#050505;text-decoration:none;font-weight:900}.finder-restart{border:1px solid rgba(212,175,55,.4);background:transparent;color:#f2d06b;border-radius:12px;padding:12px 22px;font-family:inherit;cursor:pointer}
+@keyframes finderIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}@media(max-width:700px){.finder-options{grid-template-columns:1fr}.finder-question h3{font-size:25px}.finder-result h3{font-size:30px}}
+</style>
+
 </head>
 <script>
 if ("serviceWorker" in navigator) {
@@ -129,6 +140,56 @@ if ("serviceWorker" in navigator) {
         </div>
       </div>
       <div class="journey-story-end">من 2014... ولسه مكملين ☕👑</div>
+    </div>
+  </section>
+
+
+  <section class="coffee-finder" id="coffee-finder">
+    <div class="coffee-finder-inner">
+      <div class="coffee-finder-heading">
+        <span>☕ اعرف بنك</span>
+        <h2>قهوتك على مزاجك</h2>
+        <p>جاوب على 3 أسئلة بسيطة، وإحنا نرشحلك أقرب اختيار من منتجات بن الملوك الموجودة عندنا.</p>
+      </div>
+      <div class="finder-progress"><div class="finder-progress-bar" id="finderProgressBar"></div></div>
+
+      <div class="finder-question active" data-step="1">
+        <small>السؤال 1 من 3</small>
+        <h3>بتحب قهوتك إزاي؟</h3>
+        <div class="finder-options">
+          <button type="button" class="finder-option" data-key="style" data-value="plain"><strong>☕ سادة</strong><span>طعم البن واضح وأصيل</span></button>
+          <button type="button" class="finder-option" data-key="style" data-value="mixed"><strong>👑 محوج</strong><span>نكهة غنية ولمسة توابل</span></button>
+        </div>
+      </div>
+
+      <div class="finder-question" data-step="2">
+        <small>السؤال 2 من 3</small>
+        <h3>بتحب التحميص إزاي؟</h3>
+        <div class="finder-options">
+          <button type="button" class="finder-option" data-key="roast" data-value="light"><strong>🌅 فاتح</strong><span>نكهة أخف وأهدى</span></button>
+          <button type="button" class="finder-option" data-key="roast" data-value="medium"><strong>☀️ وسط</strong><span>توازن في الطعم</span></button>
+          <button type="button" class="finder-option" data-key="roast" data-value="dark"><strong>🔥 غامق</strong><span>طعم أقوى وأوضح</span></button>
+        </div>
+      </div>
+
+      <div class="finder-question" data-step="3">
+        <small>السؤال 3 من 3</small>
+        <h3>إيه الأقرب لذوقك؟</h3>
+        <div class="finder-options">
+          <button type="button" class="finder-option" data-key="taste" data-value="strong"><strong>🔥 طعم قوي</strong><span>عاوز القهوة تبان من أول رشفة</span></button>
+          <button type="button" class="finder-option" data-key="taste" data-value="smooth"><strong>✨ ناعمة ومتوازنة</strong><span>طعم هادي وسهل للشرب</span></button>
+          <button type="button" class="finder-option" data-key="taste" data-value="balanced"><strong>⚖️ متوازنة</strong><span>لا تقيلة ولا خفيفة</span></button>
+        </div>
+      </div>
+
+      <div class="finder-result" id="finderResult" aria-live="polite">
+        <div class="finder-result-icon">👑</div>
+        <span class="finder-result-label">اختيارنا ليك</span>
+        <h3 id="finderResultName">توليفة الملوك</h3>
+        <p id="finderResultText"></p>
+        <a href="#products" id="finderResultButton">شوف المنتج ☕</a>
+        <button type="button" class="finder-restart" id="finderRestart">↻ جرّب من جديد</button>
+      </div>
     </div>
   </section>
 
@@ -1260,5 +1321,32 @@ if ("serviceWorker" in navigator) {
   <script src="script.js">
   </script>
 
- </body>
+ 
+<script>
+(function(){
+  const root=document.getElementById("coffee-finder"); if(!root)return;
+  const qs=[...root.querySelectorAll(".finder-question")], bar=root.querySelector("#finderProgressBar");
+  const result=root.querySelector("#finderResult"), name=root.querySelector("#finderResultName"), text=root.querySelector("#finderResultText"), restart=root.querySelector("#finderRestart");
+  const a={}; let step=0;
+  function show(){qs.forEach((q,i)=>q.classList.toggle("active",i===step));bar.style.width=((step+1)/qs.length*100)+"%";}
+  function recommend(){
+    let n="توليفة الملوك",t="اختيار مميز لعشاق القهوة الغنية.";
+    if(a.style==="mixed"){n="توليفة الملوك محوج";t="لو بتحب القهوة المحوجة بطعم غني، دي أقرب ترشيح ليك من المنيو."}
+    else if(a.roast==="dark"&&a.style==="plain"){n="بن برازيلي غامق سادة";t="مناسب لو بتحب البن السادة بطعم أقوى وتحميص غامق."}
+    else if(a.roast==="medium"&&a.style==="plain"){n="بن برازيلي وسط سادة";t="اختيار متوازن لعشاق البن السادة بطعم متوسط."}
+    else if(a.roast==="light"&&a.style==="plain"){n="بن برازيلي فاتح سادة";t="اختيار أخف لعشاق البن السادة بطابع هادي."}
+    else if(a.taste==="strong"){n="بن إسبشيال محوج";t="ترشيح لعشاق النكهة الواضحة والقهوة الغنية."}
+    else if(a.taste==="balanced"){n="بن كولومبي سادة";t="اختيار متوازن لو بتحب طعم البن واضح من غير مبالغة."}
+    name.textContent=n;text.textContent=t;result.classList.add("show");qs.forEach(q=>q.classList.remove("active"));bar.style.width="100%";
+  }
+  root.querySelectorAll(".finder-option").forEach(b=>b.addEventListener("click",()=>{
+    if(b.dataset.key&&b.dataset.value)a[b.dataset.key]=b.dataset.value;
+    if(step<qs.length-1){step++;show()}else recommend();
+  }));
+  restart.addEventListener("click",()=>{Object.keys(a).forEach(k=>delete a[k]);step=0;result.classList.remove("show");show();root.scrollIntoView({behavior:"smooth",block:"start"})});
+  show();
+})();
+</script>
+
+</body>
 </html>
