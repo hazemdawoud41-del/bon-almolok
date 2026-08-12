@@ -43,6 +43,26 @@
 @keyframes finderIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}@media(max-width:700px){.finder-options{grid-template-columns:1fr}.finder-question h3{font-size:25px}.finder-result h3{font-size:30px}}
 </style>
 
+
+<style>
+.coffee-origins{position:relative;overflow:hidden;padding:105px 20px;background:radial-gradient(circle at 50% 30%,rgba(212,175,55,.11),transparent 34%),linear-gradient(180deg,#050505,#0a0a0a,#050505);border-top:1px solid rgba(212,175,55,.12)}
+.origins-inner{max-width:1180px;margin:auto}.origins-heading{text-align:center;margin-bottom:48px}.origins-heading>span{color:#d4af37;font-weight:900}.origins-heading h2{margin:10px 0;color:#f2d06b;font-size:clamp(36px,5vw,60px);font-weight:900}.origins-line{width:180px;height:1px;margin:20px auto;background:linear-gradient(90deg,transparent,#d4af37,transparent)}.origins-heading p{color:#ddd;font-size:17px;line-height:2;margin:0}
+.origins-map{position:relative;max-width:1000px;height:520px;margin:auto;border:1px solid rgba(212,175,55,.22);border-radius:30px;overflow:hidden;background:radial-gradient(ellipse at center,rgba(212,175,55,.07),transparent 58%),linear-gradient(145deg,#0d0d0d,#030303);box-shadow:0 30px 90px rgba(0,0,0,.55),inset 0 0 80px rgba(212,175,55,.025)}
+.origins-map:before{content:"";position:absolute;inset:12%;background-image:linear-gradient(rgba(212,175,55,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.07) 1px,transparent 1px);background-size:55px 55px;transform:perspective(500px) rotateX(52deg);transform-origin:center bottom;opacity:.35}
+.map-glow{position:absolute;width:360px;height:360px;left:50%;top:48%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.09),transparent 68%);filter:blur(4px)}
+.map-title{position:absolute;top:25px;left:50%;transform:translateX(-50%);color:rgba(242,208,107,.35);font-size:12px;letter-spacing:5px;font-weight:900}
+.origin-pin{position:absolute;z-index:4;width:58px;height:58px;border:1px solid rgba(212,175,55,.5);border-radius:50%;background:rgba(5,5,5,.92);color:#fff;cursor:pointer;box-shadow:0 0 0 8px rgba(212,175,55,.035),0 0 25px rgba(212,175,55,.13);transition:.3s;font-family:inherit}
+.origin-pin:hover,.origin-pin.active{transform:scale(1.15);border-color:#f2d06b;box-shadow:0 0 0 10px rgba(212,175,55,.06),0 0 35px rgba(212,175,55,.3)}
+.origin-pin b{font-size:23px}.pin-dot{position:absolute;width:7px;height:7px;border-radius:50%;background:#d4af37;top:-3px;left:50%;transform:translateX(-50%);box-shadow:0 0 12px #d4af37}
+.pin-brazil{left:31%;top:54%}.pin-colombia{left:24%;top:47%}.pin-ethiopia{left:66%;top:55%}
+.map-label{position:absolute;z-index:3;color:#d4af37;font-size:13px;font-weight:900;pointer-events:none}
+.label-brazil{left:28%;top:66%}.label-colombia{left:18%;top:39%}.label-ethiopia{left:64%;top:67%}
+.origin-card{position:absolute;z-index:5;right:28px;bottom:28px;width:340px;padding:25px;border:1px solid rgba(212,175,55,.38);border-radius:22px;background:rgba(5,5,5,.93);backdrop-filter:blur(12px);box-shadow:0 20px 55px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(15px);transition:.35s}
+.origin-card.show{opacity:1;visibility:visible;transform:none}.origin-close{position:absolute;top:8px;left:10px;border:0;background:transparent;color:#aaa;font-size:28px;cursor:pointer}.origin-card-flag{font-size:35px}.origin-card #originKicker{color:#d4af37;font-size:12px;font-weight:900}.origin-card h3{color:#f2d06b;font-size:28px;margin:5px 0}.origin-card p{color:#ddd;line-height:1.9;font-size:14px;margin:0 0 15px}.origin-products{display:flex;flex-wrap:wrap;gap:8px}.origin-products span{padding:7px 10px;border:1px solid rgba(212,175,55,.25);border-radius:999px;color:#f2d06b;font-size:12px}
+.origins-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:25px auto 0}.origins-bottom div{padding:18px;text-align:center;border:1px solid rgba(212,175,55,.13);border-radius:16px;background:rgba(255,255,255,.02)}.origins-bottom strong{display:block;color:#f2d06b;margin-bottom:6px}.origins-bottom span{color:#aaa;font-size:13px}
+@media(max-width:700px){.coffee-origins{padding:75px 15px}.origins-map{height:580px}.origin-card{left:18px;right:18px;bottom:18px;width:auto}.pin-brazil{left:34%;top:35%}.pin-colombia{left:20%;top:28%}.pin-ethiopia{left:68%;top:38%}.label-brazil{left:30%;top:46%}.label-colombia{left:14%;top:20%}.label-ethiopia{left:65%;top:48%}.origins-bottom{grid-template-columns:1fr}}
+</style>
+
 </head>
 <script>
 if ("serviceWorker" in navigator) {
@@ -189,6 +209,53 @@ if ("serviceWorker" in navigator) {
         <p id="finderResultText"></p>
         <a href="#products" id="finderResultButton">شوف المنتج ☕</a>
         <button type="button" class="finder-restart" id="finderRestart">↻ جرّب من جديد</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- البن جاي منين؟ -->
+  <section class="coffee-origins" id="coffee-origins">
+    <div class="origins-inner">
+      <div class="origins-heading">
+        <span>🌍 من هنا بدأت الرحلة</span>
+        <h2>البن جاي منين؟</h2>
+        <div class="origins-line"></div>
+        <p>من مزارع البن حول العالم... إلى فنجانك في بن الملوك.</p>
+      </div>
+
+      <div class="origins-map">
+        <div class="map-glow"></div>
+        <div class="map-title">COFFEE ORIGINS</div>
+
+        <button class="origin-pin pin-brazil" type="button" data-origin="brazil" aria-label="البرازيل">
+          <span class="pin-dot"></span><b>🇧🇷</b>
+        </button>
+        <button class="origin-pin pin-colombia" type="button" data-origin="colombia" aria-label="كولومبيا">
+          <span class="pin-dot"></span><b>🇨🇴</b>
+        </button>
+        <button class="origin-pin pin-ethiopia" type="button" data-origin="ethiopia" aria-label="إثيوبيا">
+          <span class="pin-dot"></span><b>🇪🇹</b>
+        </button>
+
+        <div class="map-label label-brazil">البرازيل</div>
+        <div class="map-label label-colombia">كولومبيا</div>
+        <div class="map-label label-ethiopia">إثيوبيا</div>
+
+        <div class="origin-card" id="originCard" aria-live="polite">
+          <button class="origin-close" type="button" aria-label="إغلاق">×</button>
+          <div class="origin-card-flag" id="originFlag">🌍</div>
+          <span id="originKicker">اختار بلد</span>
+          <h3 id="originName">اكتشف مصادر البن</h3>
+          <p id="originText">اضغط على أي نقطة ذهبية على الخريطة لتتعرف على البن الموجود عندنا من هذه البلد.</p>
+          <div class="origin-products" id="originProducts"></div>
+        </div>
+      </div>
+
+      <div class="origins-bottom">
+        <div><strong>🇧🇷 البرازيل</strong><span>بن برازيلي</span></div>
+        <div><strong>🇨🇴 كولومبيا</strong><span>بن كولومبي</span></div>
+        <div><strong>🇪🇹 إثيوبيا</strong><span>بن حبشي</span></div>
       </div>
     </div>
   </section>
@@ -1345,6 +1412,26 @@ if ("serviceWorker" in navigator) {
   }));
   restart.addEventListener("click",()=>{Object.keys(a).forEach(k=>delete a[k]);step=0;result.classList.remove("show");show();root.scrollIntoView({behavior:"smooth",block:"start"})});
   show();
+})();
+</script>
+
+
+<script>
+(function(){
+  const root=document.getElementById("coffee-origins"); if(!root)return;
+  const data={
+    brazil:{flag:"🇧🇷",name:"البرازيل",text:"في منيو بن الملوك، البن البرازيلي موجود بدرجات تحميص فاتح ووسط وغامق، مع اختيارات سادة ومحوج.",products:["فاتح سادة","فاتح محوج","وسط سادة","وسط محوج","غامق سادة","غامق محوج"]},
+    colombia:{flag:"🇨🇴",name:"كولومبيا",text:"بن كولومبي موجود عندنا في اختيارين: سادة ومحوج، ضمن منتجات بن الملوك.",products:["بن كولومبي سادة","بن كولومبي محوج"]},
+    ethiopia:{flag:"🇪🇹",name:"إثيوبيا",text:"بن حبشي موجود عندنا في اختيارين: سادة ومحوج، ضمن منتجات بن الملوك.",products:["بن حبشي سادة","بن حبشي محوج"]}
+  };
+  const card=root.querySelector("#originCard"), flag=root.querySelector("#originFlag"), name=root.querySelector("#originName"), text=root.querySelector("#originText"), products=root.querySelector("#originProducts");
+  root.querySelectorAll(".origin-pin").forEach(pin=>pin.addEventListener("click",()=>{
+    const d=data[pin.dataset.origin]; if(!d)return;
+    root.querySelectorAll(".origin-pin").forEach(p=>p.classList.remove("active"));pin.classList.add("active");
+    flag.textContent=d.flag;name.textContent=d.name;text.textContent=d.text;products.innerHTML=d.products.map(x=>"<span>"+x+"</span>").join("");
+    card.classList.add("show");
+  }));
+  root.querySelector(".origin-close").addEventListener("click",()=>{card.classList.remove("show");root.querySelectorAll(".origin-pin").forEach(p=>p.classList.remove("active"));});
 })();
 </script>
 
