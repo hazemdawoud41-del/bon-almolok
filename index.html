@@ -26,7 +26,13 @@
 <link rel="apple-touch-icon" href="logo.png">
 
 <meta name="theme-color" content="#d4af37">
- </head>
+ 
+<style>
+.journey-story{position:relative;overflow:hidden;padding:100px 20px;background:radial-gradient(circle at 50% 20%,rgba(212,175,55,.10),transparent 34%),linear-gradient(180deg,#050505,#090909 55%,#050505);border-top:1px solid rgba(212,175,55,.12);border-bottom:1px solid rgba(212,175,55,.12)}
+.journey-story-inner{max-width:1180px;margin:auto;position:relative;z-index:1}.journey-story-heading{text-align:center;max-width:800px;margin:0 auto 65px}.journey-story-kicker{display:inline-block;color:#d4af37;font-weight:800;letter-spacing:2px;margin-bottom:12px}.journey-story-heading h2{margin:0;color:#f2d06b;font-size:clamp(32px,5vw,58px);font-weight:900;text-shadow:0 0 25px rgba(212,175,55,.18)}.journey-story-line{width:170px;height:1px;margin:22px auto;background:linear-gradient(90deg,transparent,#d4af37,transparent)}.journey-story-heading p{color:#d8d8d8;font-size:17px;line-height:2;margin:0}.journey-timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;position:relative}.journey-timeline:before{content:"";position:absolute;top:38px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,#d4af37,transparent);opacity:.45}.journey-story-item{position:relative;text-align:center}.journey-year{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 24px;border:1px solid rgba(212,175,55,.5);border-radius:999px;background:#080808;color:#f2d06b;font-weight:900;box-shadow:0 0 25px rgba(212,175,55,.08)}.journey-story-card{margin-top:28px;padding:34px 24px;min-height:275px;border:1px solid rgba(212,175,55,.16);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(212,175,55,.025));box-shadow:0 20px 55px rgba(0,0,0,.3),inset 0 0 35px rgba(212,175,55,.018);transition:.35s}.journey-story-card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.55);box-shadow:0 25px 60px rgba(0,0,0,.45),0 0 30px rgba(212,175,55,.08)}.journey-number{display:block;color:rgba(212,175,55,.45);font-size:13px;font-weight:900;letter-spacing:2px}.journey-story-icon{font-size:38px;margin:12px 0}.journey-story-card h3{color:#f2d06b;font-size:25px;margin:0 0 13px}.journey-story-card p{color:#ddd;font-size:16px;line-height:2;margin:0}.journey-story-end{width:max-content;max-width:100%;margin:55px auto 0;padding:16px 30px;border:1px solid rgba(212,175,55,.35);border-radius:999px;color:#f2d06b;font-size:22px;font-weight:900;box-shadow:0 0 30px rgba(212,175,55,.07)}@media(max-width:800px){.journey-story{padding:75px 15px}.journey-timeline{grid-template-columns:1fr;gap:20px}.journey-timeline:before{top:0;bottom:0;left:50%;right:auto;width:1px;height:auto}.journey-year{background:#080808}.journey-story-card{min-height:auto}.journey-story-end{font-size:18px;text-align:center}}
+</style>
+
+</head>
 <script>
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
@@ -84,6 +90,45 @@ if ("serviceWorker" in navigator) {
         <p>نفخر بثقة عملائنا منذ سنوات، ونسعى دائمًا للحفاظ على أعلى مستويات الجودة والخدمة.</p>
         <div class="father-signature"><span>رحلة بدأت بالشغف</span><strong>بن الملوك</strong></div>
       </div>
+    </div>
+  </section>
+
+
+  <section class="journey-story" id="journey-story">
+    <div class="journey-story-inner">
+      <div class="journey-story-heading">
+        <span class="journey-story-kicker">رحلة البن</span>
+        <h2>من 2014... ولسه مكملين</h2>
+        <div class="journey-story-line"></div>
+        <p>منذ البداية وحتى اليوم، مستمرين بنفس الشغف تجاه القهوة وبنفس الحرص على الجودة.</p>
+      </div>
+      <div class="journey-timeline">
+        <div class="journey-story-item">
+          <div class="journey-year">2014</div>
+          <div class="journey-story-card">
+            <span class="journey-number">01</span><div class="journey-story-icon">🌱</div>
+            <h3>البداية</h3>
+            <p>بدأت رحلة بن الملوك من شغف حقيقي بالقهوة ورغبة في تقديم بن بجودة تليق باسم بن الملوك.</p>
+          </div>
+        </div>
+        <div class="journey-story-item">
+          <div class="journey-year">سنوات من الخبرة</div>
+          <div class="journey-story-card">
+            <span class="journey-number">02</span><div class="journey-story-icon">🔥</div>
+            <h3>الخبرة والاستمرار</h3>
+            <p>كبرت الرحلة، وكبرت معها الخبرة وثقة عملائنا، مع الحفاظ على اهتمامنا بجودة البن وطريقة تقديمه.</p>
+          </div>
+        </div>
+        <div class="journey-story-item">
+          <div class="journey-year">2026</div>
+          <div class="journey-story-card">
+            <span class="journey-number">03</span><div class="journey-story-icon">👑</div>
+            <h3>ولسه مكملين</h3>
+            <p>من 2014 وحتى اليوم، مستمرين في تطوير بن الملوك بنفس الشغف، ولسه الحكاية مكملة.</p>
+          </div>
+        </div>
+      </div>
+      <div class="journey-story-end">من 2014... ولسه مكملين ☕👑</div>
     </div>
   </section>
 
