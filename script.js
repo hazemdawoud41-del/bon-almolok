@@ -760,3 +760,54 @@
     updateCartButton();
 
 })();
+
+// =========================================================
+// BON AL MOLOK V4 - MOBILE APP NAVIGATION
+// =========================================================
+(function(){
+  const nav=document.getElementById("mobileBottomNav");
+  if(!nav)return;
+  const items=[...nav.querySelectorAll(".mobile-nav-item[data-target]")];
+  const cartNav=document.getElementById("mobileCartNav");
+  const mobileCount=document.getElementById("mobileCartCount");
+
+  items.forEach(item=>{
+    item.addEventListener("click",()=>{
+      const target=document.getElementById(item.dataset.target);
+      if(target){target.scrollIntoView({behavior:"smooth",block:"start"});}
+    });
+  });
+
+  if(cartNav){
+    cartNav.addEventListener("click",()=>{
+      const btn=document.getElementById("cartButton");
+      if(btn)btn.click();
+    });
+  }
+
+  const sections=["home","products","about","contact"].map(id=>document.getElementById(id)).filter(Boolean);
+  const setActive=(id)=>items.forEach(i=>i.classList.toggle("active",i.dataset.target===id));
+  if("IntersectionObserver" in window){
+    const observer=new IntersectionObserver(entries=>{
+      const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(visible)setActive(visible.target.id);
+    },{rootMargin:"-20% 0px -60% 0px",threshold:[0,.15,.35,.6]});
+    sections.forEach(s=>observer.observe(s));
+  }
+
+  const sync=()=>{
+    const count=document.getElementById("cartCount");
+    if(!mobileCount||!count)return;
+    mobileCount.textContent=count.textContent.trim()||"0";
+    const n=parseInt(count.textContent,10)||0;
+    cartNav.classList.toggle("has-items",n>0);
+  };
+  sync();
+  const countEl=document.getElementById("cartCount");
+  if(countEl&&"MutationObserver" in window)new MutationObserver(sync).observe(countEl,{childList:true,subtree:true,characterData:true});
+})();
+
+// Keep the page at the top when installed as an app and opened from the launcher.
+if(window.matchMedia && window.matchMedia("(display-mode: standalone)").matches){
+  document.documentElement.classList.add("standalone-mode");
+}

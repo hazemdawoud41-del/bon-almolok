@@ -2,11 +2,12 @@
 <html dir="rtl" lang="ar">
  <head>
 <link rel="manifest" href="manifest.json">
-
-<meta name="theme-color" content="#050505">
-
 <link rel="icon" type="image/png" sizes="192x192" href="logo-192.png">
-<link rel="apple-touch-icon" href="logo-192.png">
+<link rel="apple-touch-icon" sizes="192x192" href="logo-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="بن الملوك">
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>
@@ -27,11 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&amp;family=Marhey:wght@700;800&amp;display=swap" rel="stylesheet"/>
 <link href="style.css?v=father-final-11" rel="stylesheet"/>
 
-<link rel="manifest" href="manifest.json">
-
-<link rel="apple-touch-icon" href="logo.png">
-
-<meta name="theme-color" content="#d4af37">
+<meta name="theme-color" content="#050505">
  
 <style>
 .journey-story{position:relative;overflow:hidden;padding:100px 20px;background:radial-gradient(circle at 50% 20%,rgba(212,175,55,.10),transparent 34%),linear-gradient(180deg,#050505,#090909 55%,#050505);border-top:1px solid rgba(212,175,55,.12);border-bottom:1px solid rgba(212,175,55,.12)}
@@ -301,7 +298,7 @@ if ("serviceWorker" in navigator) {
     </div>
   </div>
 </section>
-<section class="hero">
+<section class="hero" id="home">
    <div class="hero-overlay">
    </div>
    <div class="hero-content">
@@ -1493,5 +1490,15 @@ if ("serviceWorker" in navigator) {
   r.querySelector("#personalityAgain").onclick=()=>result.classList.remove("show");
 })();
 </script>
+
+  <!-- MOBILE APP NAVIGATION -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="التنقل السريع">
+    <a href="#home" class="mobile-nav-item active" data-target="home"><span>⌂</span><small>الرئيسية</small></a>
+    <a href="#products" class="mobile-nav-item" data-target="products"><span>☕</span><small>المنيو</small></a>
+    <button type="button" class="mobile-nav-item mobile-cart-nav" id="mobileCartNav" aria-label="فتح السلة"><span>🛒<b id="mobileCartCount">0</b></span><small>السلة</small></button>
+    <a href="#about" class="mobile-nav-item" data-target="about"><span>👑</span><small>من نحن</small></a>
+    <a href="#contact" class="mobile-nav-item" data-target="contact"><span>☎</span><small>تواصل</small></a>
+  </nav>
+
 </body>
 </html>
